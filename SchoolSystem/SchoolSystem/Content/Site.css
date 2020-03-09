@@ -3,30 +3,92 @@
     padding: 0;
     width: 100%;
 }
-.altura-slider{
-height: 550px;
+
+.altura-slider {
+    height: 550px;
 }
+
 .altura-servicio {
     height: 380px;
 }
+
 .row {
     margin: 0;
     padding: 0;
     width: 100%;
 }
-.width-btn{
+
+.width-btn {
     width: 300px;
-    text-align:center;
 }
 
-.margin{
-    margin-top: 30px;
-    margin-bottom: 20px;
+.margin-enlaces {
+    padding-bottom: 75px;
+    margin-right: 20px;
+    margin-bottom: 70px;
 }
+
+.margin {
+    margin-top: 50px;
+    padding-top: 40px;
+    padding-bottom: 75px;
+    margin-bottom: 70px;
+}
+
 .color-footer {
     background-color: #22233E;
-
+    padding: 0;
+    margin: 0;
 }
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.color-div {
+    background: #f9f9f9;
+}
+
+.text-color-footer {
+    color: #c7c7c7;
+    font-size: 11px;
+    line-height: 16px;
+}
+
+.text-title {
+    color: #22233E;
+    margin-bottom: 20px;
+    font-weight: 300;
+    margin: 40px;
+    padding-top: 50px;
+}
+
+.text-title-enlaces {
+    color: #22233E;
+    font-weight: 300;
+    margin: 40px;
+    padding-bottom: 30px;
+}
+
+.text-service {
+    color: #22233E;
+    margin-bottom: 20px;
+    font-weight: 300;
+    margin: 40px;
+}
+
+.text {
+    font-size: 16px;
+    color: #484444;
+    font-style: italic;
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 300;
+    margin: 40px;
+    padding-top: 10px;
+}
+
 .nav-custom {
     background-color: #22233E;
     color: #fff;

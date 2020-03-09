@@ -10,7 +10,7 @@
 .search{ float:right; }
 .pSearch{ width:100%; height:auto; display:table; float:right; margin:5px 0 0 0; }
 .pSearch input,
-.fRight input{ float:left; border:0; }
+.fRight input{ float:left;  }
 .pSearch input#mod-search-searchword,
 .fRight input#mod-search-searchword{ width:160px; height:25px; line-height:25px; -moz-box-shadow: inset 0 0 15px #999; -webkit-box-shadow: inset 0 0 15px #999; box-shadow: inset 0 0 15px #999; padding:0 10px; color:#B4B4B4; font-style:italic; }
 .pSearch form,
@@ -65,8 +65,13 @@ ul#linesLogos li:last-child{ margin:0 0 0 30px; }
 ul#linesLogos li#line{ width:361px; background:url(../images/footerLines.png) no-repeat 0 35px; }
 ul#linesLogos li#logo1,
 ul#linesLogos li#logo2{ width:79px; }
-ul#linesLogos li#logo1{ background:url('../Image/school-logo.png') no-repeat; }
-ul#linesLogos li#logo2{ background:url(../images/footerRd.gif) no-repeat; }
+ul#linesLogos li#logo1{ background:url('../Image/school-logo.png') no-repeat; 
+                        margin-top : 5px;
+}
+    ul#linesLogos li#logo2 {
+   
+        margin-top: 5px;
+    }
 ul#linesLogos li#separator{ width:39px; background:url(../images/separator.gif) no-repeat; }
 ul#infoFooter{ width:auto; display:table; margin:25px auto 0 auto; }
 ul#infoFooter li{ height:auto; list-style:none; display:inline-block; float:left; }
