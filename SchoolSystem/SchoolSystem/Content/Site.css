@@ -1,12 +1,42 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.altura-slider{
+height: 550px;
+}
+.altura-servicio {
+    height: 380px;
+}
+.row {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.width-btn{
+    width: 300px;
+    text-align:center;
 }
 
+.margin{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.color-footer {
+    background-color: #22233E;
+
+}
+.nav-custom {
+    background-color: #22233E;
+    color: #fff;
+    border-radius: 0;
+    margin-bottom: 0;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -16,6 +46,9 @@
     white-space: normal;
 }
 
+a {
+    color: #fff;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,

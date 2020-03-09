@@ -3,35 +3,98 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/css/template.css" rel="stylesheet" />
+    <title>@ViewBag.Title Inicio</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+    <div class="row">
+        <div class="col-xs-5 col-sm-5 col-md-6 col-md-push-1">
+            <img src="~/Image/school.png" height="120" />
+        </div>
+        <div class="col-xs-6 col-sm-5 col-md-5 col-md-pull-1">
+
+            <div class="repDom"></div>
+            <div class="pSearch">
+                <!--[COLOCAR BUSCADOR EN ESTA PARTE]-->
+                <div class="search">
+                    <input name="search" type="text" id="mod-search-searchword">
+                    <input name="search" type="image" src="images/searchButton.gif">
+                </div><!--end search-->
+            </div><!--end pSearch-->
+            <div class="navMenu">
+                <!--[COLOCAR EN ESTA PARTE EL MENU DE NAVEGACION FACIL]-->
+                <ul class="menu">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Mapa de sitio</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul><!--end menu-->
+            </div><!--end navMenu-->
+        </div><!--end headerBoxBox1-->
+
+    </div>
+    <div>
+        <div class="navbar nav-custom ">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav ">
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Sobre Nostros", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Admisiones", "About", "Home")</li>
+
+                        <li class="treeview">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Servicios
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Page 1-1</a></li>
+                                <li><a href="#">Page 1-2</a></li>
+                                <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Transparencia", "Contact", "Home")</li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesión</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class=" body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="color-footer">
+
+            <ul id="linesLogos">
+              <!--  <li id="logo1"></li>--><!--[SUSTITUIR LA IMAGEN "logoFooter1.gif" POR EL LOGO DE LA INSTITUION]-->
+                <li id="logo2"></li><!--[ESTE ES EL ESCUDO DE LA REPUBLICA DOMINICANA]-->
+            </ul><!--end linesLogos-->
+
+            <div class="clr"></div>
+
+            <ul id="infoFooter">
+                <li id="space">&nbsp;</li>
+                <li id="info">
+                    <a href="#">[NOMBRE COMPLETO DE LA INSTITUCION CON LAS SIGLAS AL FINAL]</a><!--[ESPECIFICAR LA RUTA AL INICIO DEL PORTAL]--><br>
+                    [DIRECCION COMPLETA DE LA INSTITUCION]<br>
+                    [TELEFONOS Y FAX DE LA INSTITUCION]<br>
+                    <span>&copy; [AÑO ACTUAL] Todos los Derechos Reservados</span>
+                </li><!--end info-->
+               
+            </ul><!--end infoFooter-->
+
+
+
         </footer>
     </div>
 
