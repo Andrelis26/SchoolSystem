@@ -56,7 +56,18 @@
                     <ul class="nav navbar-nav ">
                         <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                         <li>@Html.ActionLink("Sobre Nostros", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Admisiones", "About", "Home")</li>
+
+                        <li class="treeview">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Admisiones
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li> @Html.ActionLink("Requisitos admisión", "About", "Home")</li>
+                                <li> @Html.ActionLink("Solicitud admisión", "About", "Home")</li>
+                            </ul>
+                        </li>
 
                         <li class="treeview">
                         <li class="dropdown">
