@@ -3,35 +3,110 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/css/template.css" rel="stylesheet" />
+    <title>@ViewBag.Title Inicio</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+    <div class="row">
+        <div class="col-xs-5 col-sm-5 col-md-6 col-md-push-1">
+            <img src="~/Image/school.png" height="120" />
+        </div>
+        <div class="col-xs-6 col-sm-5 col-md-5 ">
+
+            <div class="repDom"></div>
+            <div class="pSearch">
+                <!--[COLOCAR BUSCADOR EN ESTA PARTE]-->
+                <div class="search">
+                    <form>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div><!--end search-->
+            </div><!--end pSearch-->
+            <div class="navMenu">
+                <!--[COLOCAR EN ESTA PARTE EL MENU DE NAVEGACION FACIL]-->
+                <ul class="menu">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Mapa de sitio</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul><!--end menu-->
+            </div><!--end navMenu-->
+        </div><!--end headerBoxBox1-->
+
+    </div>
+    <div>
+        <div class="navbar nav-custom ">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav ">
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Sobre Nostros", "Contact", "Home")</li>
+
+                        <li class="treeview">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Admisiones
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li> @Html.ActionLink("Requisitos admisión", "About", "Home")</li>
+                                <li> @Html.ActionLink("Solicitud admisión", "About", "Home")</li>
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Servicios
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Page 1-1</a></li>
+                                <li><a href="#">Page 1-2</a></li>
+                                <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Transparencia", "Contact", "Home")</li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesión</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class=" body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="color-footer text-color-footer">
+            <ul id="linesLogos">
+                <li id="logo1"><img src="~/Image/school-logo.png" class="img-responsive" /></li><!--[SUSTITUIR LA IMAGEN "logoFooter1.gif" POR EL LOGO DE LA INSTITUION]-->
+                <li id="logo2"><img src="~/Image/1200px-Coat_of_arms_of_the_Dominican_Republic.svg.png" class="img-responsive" /> </li><!--[ESTE ES EL ESCUDO DE LA REPUBLICA DOMINICANA]-->
+            </ul><!--end linesLogos-->
+
+            <ul class="text-center">
+                <li id="space">&nbsp;</li>
+                <li>
+                    <a href="#">Escuela David Durán  </a><!--[ESPECIFICAR LA RUTA AL INICIO DEL PORTAL]--><br>
+                    Avenida Máximo Gómez esquina Santiago, No.02 Gazcue, Distrito Nacional, República Dominicana.<br>
+                    Tel.:8092312774 | email: <a href="mailto:infoescueladavidduran@gmail.com">infoescueladavidduran@gmail.com</a><br>
+                    <span>&copy; @DateTime.Now.Year Todos los Derechos Reservados</span>
+                </li><!--end info-->
+            </ul><!--end infoFooter-->
         </footer>
     </div>
 

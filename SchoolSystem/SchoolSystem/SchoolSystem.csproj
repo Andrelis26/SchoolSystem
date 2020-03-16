@@ -46,6 +46,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -99,9 +102,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -131,10 +131,38 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\HomeDesign.css" />
+    <Content Include="css\template.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\bg1.jpg" />
+    <Content Include="images\footerLines.png" />
+    <Content Include="images\footerRd.gif" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logoFooter1.gif" />
+    <Content Include="images\menu-h-bg.gif" />
+    <Content Include="images\nortic.png" />
+    <Content Include="images\parent.png" />
+    <Content Include="images\repDom.png" />
+    <Content Include="images\searchButton.gif" />
+    <Content Include="images\separator.gif" />
+    <Content Include="images\slideShadow.png" />
+    <Content Include="Image\1200px-Coat_of_arms_of_the_Dominican_Republic.svg.png" />
+    <Content Include="Image\EduSoft.png" />
+    <Content Include="Image\EG8m2NCWwA8rfow.jpg" />
+    <Content Include="Image\element5-digital-OyCl7Y4y0Bk-unsplash.jpg" />
+    <Content Include="Image\Logo-mescyt.png" />
+    <Content Include="Image\minerd-e.jpg" />
+    <Content Include="Image\mj_logo.jpg" />
+    <Content Include="Image\republica.png" />
+    <Content Include="Image\school-logo.png" />
+    <Content Include="Image\javier-trueba-iQPr1XkF5F0-unsplash.jpg" />
+    <Content Include="Image\jerry-wang-jfnUC7s3iuw-unsplash.jpg" />
+    <Content Include="Image\school.png" />
+    <Content Include="Image\Escuela Básica.png" />
+    <Content Include="Image\vasily-koloda-8CqDvPuo_kI-unsplash.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
