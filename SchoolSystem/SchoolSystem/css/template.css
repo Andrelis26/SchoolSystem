@@ -109,8 +109,12 @@ ul#infoFooter li#info ul.menu li:last-child{ margin:0; padding:0; border:0; }
     font-size: 34px;
 }
 
-.logo-name {
+.titu {
     color: whitesmoke;
     font-size: 65px;
     margin-top: 140px;
+}
+
+.pregunta h2 {
+    color: blueviolet; 
 }
