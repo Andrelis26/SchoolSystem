@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SistemaEscolarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Direccion">
+          <Key>
+            <PropertyRef Name="ID_Direccion" />
+          </Key>
+          <Property Name="ID_Direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Estudiante" Type="int" Nullable="false" />
+          <Property Name="Calle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Provincia" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Municipio" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Sector" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="No_Casa" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Documentos_Estudiantes">
+          <Key>
+            <PropertyRef Name="ID_Documentos" />
+          </Key>
+          <Property Name="ID_Documentos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Estudiante" Type="int" Nullable="false" />
+          <Property Name="Foto" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ActaNacimiento" Type="varbinary(max)" Nullable="false" />
+          <Property Name="CertificadoMedico" Type="varbinary(max)" Nullable="false" />
+          <Property Name="CertificadoEscorlar" Type="varbinary(max)" />
+          <Property Name="RecordNotas" Type="varbinary(max)" />
+          <Property Name="CopiaCedula" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="ID_Estudiante" />
+          </Key>
+          <Property Name="ID_Estudiante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Primer_Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Segundo_Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Primer_Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Segundo_Apelido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+          <Property Name="Edad" Type="smallint" Nullable="false" />
+          <Property Name="Nacionalidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sexo" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="ID_Grado" Type="int" Nullable="false" />
+          <Property Name="CentroEducativo" Type="varchar" MaxLength="100" />
+          <Property Name="Nivel" Type="varchar" MaxLength="50" />
+          <Property Name="GradoSolicita" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DistritoEducativo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grado">
+          <Key>
+            <PropertyRef Name="ID_Grado" />
+          </Key>
+          <Property Name="ID_Grado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Materias">
+          <Key>
+            <PropertyRef Name="ID_Materia" />
+          </Key>
+          <Property Name="ID_Materia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ID_Grado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Padre_Tutor">
+          <Key>
+            <PropertyRef Name="ID_Tutor" />
+          </Key>
+          <Property Name="ID_Tutor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Estudiante" Type="int" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Parentesco" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cedula" Type="bigint" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Profesion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefono" Type="bigint" />
+          <Property Name="Celular" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Profesor">
+          <Key>
+            <PropertyRef Name="ID_Profesor" />
+          </Key>
+          <Property Name="ID_Profesor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Grado" Type="int" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cedula" Type="bigint" Nullable="false" />
+          <Property Name="Titulo" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Curriculum" Type="varbinary(max)" Nullable="false" />
+          <Property Name="CartaAceptacion" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Registro">
+          <Key>
+            <PropertyRef Name="ID_Registro" />
+          </Key>
+          <Property Name="ID_Registro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Estudiante" Type="int" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Contraseña" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ID_Estudiante_Direc">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="Direccion" Type="Self.Direccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="ID_Estudiante" />
+            </Principal>
+            <Dependent Role="Direccion">
+              <PropertyRef Name="ID_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Estudiante_Doc">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="Documentos_Estudiantes" Type="Self.Documentos_Estudiantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="ID_Estudiante" />
+            </Principal>
+            <Dependent Role="Documentos_Estudiantes">
+              <PropertyRef Name="ID_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Estudiante_Padre">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="Padre_Tutor" Type="Self.Padre_Tutor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="ID_Estudiante" />
+            </Principal>
+            <Dependent Role="Padre_Tutor">
+              <PropertyRef Name="ID_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Estudiante_Registro">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="Registro" Type="Self.Registro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="ID_Estudiante" />
+            </Principal>
+            <Dependent Role="Registro">
+              <PropertyRef Name="ID_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Grado_Estudiante">
+          <End Role="Grado" Type="Self.Grado" Multiplicity="1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grado">
+              <PropertyRef Name="ID_Grado" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="ID_Grado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Grado_Materia">
+          <End Role="Grado" Type="Self.Grado" Multiplicity="1" />
+          <End Role="Materias" Type="Self.Materias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grado">
+              <PropertyRef Name="ID_Grado" />
+            </Principal>
+            <Dependent Role="Materias">
+              <PropertyRef Name="ID_Grado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Grado_Profesor">
+          <End Role="Grado" Type="Self.Grado" Multiplicity="1" />
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grado">
+              <PropertyRef Name="ID_Grado" />
+            </Principal>
+            <Dependent Role="Profesor">
+              <PropertyRef Name="ID_Grado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SistemaEscolarModelStoreContainer">
+          <EntitySet Name="Direccion" EntityType="Self.Direccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documentos_Estudiantes" EntityType="Self.Documentos_Estudiantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grado" EntityType="Self.Grado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Materias" EntityType="Self.Materias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Padre_Tutor" EntityType="Self.Padre_Tutor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registro" EntityType="Self.Registro" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ID_Estudiante_Direc" Association="Self.FK_ID_Estudiante_Direc">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Direccion" EntitySet="Direccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Estudiante_Doc" Association="Self.FK_ID_Estudiante_Doc">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Documentos_Estudiantes" EntitySet="Documentos_Estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Estudiante_Padre" Association="Self.FK_ID_Estudiante_Padre">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Padre_Tutor" EntitySet="Padre_Tutor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Estudiante_Registro" Association="Self.FK_ID_Estudiante_Registro">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Registro" EntitySet="Registro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Grado_Estudiante" Association="Self.FK_ID_Grado_Estudiante">
+            <End Role="Grado" EntitySet="Grado" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Grado_Materia" Association="Self.FK_ID_Grado_Materia">
+            <End Role="Grado" EntitySet="Grado" />
+            <End Role="Materias" EntitySet="Materias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Grado_Profesor" Association="Self.FK_ID_Grado_Profesor">
+            <End Role="Grado" EntitySet="Grado" />
+            <End Role="Profesor" EntitySet="Profesor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SistemaEscolarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Direccion">
+          <Key>
+            <PropertyRef Name="ID_Direccion" />
+          </Key>
+          <Property Name="ID_Direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Estudiante" Type="Int32" Nullable="false" />
+          <Property Name="Calle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Provincia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Municipio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sector" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="No_Casa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK_ID_Estudiante_Direc" FromRole="Direccion" ToRole="Estudiante" />
+        </EntityType>
+        <EntityType Name="Documentos_Estudiantes">
+          <Key>
+            <PropertyRef Name="ID_Documentos" />
+          </Key>
+          <Property Name="ID_Documentos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Estudiante" Type="Int32" Nullable="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ActaNacimiento" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="CertificadoMedico" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="CertificadoEscorlar" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="RecordNotas" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CopiaCedula" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK_ID_Estudiante_Doc" FromRole="Documentos_Estudiantes" ToRole="Estudiante" />
+        </EntityType>
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="ID_Estudiante" />
+          </Key>
+          <Property Name="ID_Estudiante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Primer_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Segundo_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Primer_Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Segundo_Apelido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Edad" Type="Int16" Nullable="false" />
+          <Property Name="Nacionalidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sexo" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_Grado" Type="Int32" Nullable="false" />
+          <Property Name="CentroEducativo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Nivel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GradoSolicita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DistritoEducativo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Direccion" Relationship="Self.FK_ID_Estudiante_Direc" FromRole="Estudiante" ToRole="Direccion" />
+          <NavigationProperty Name="Documentos_Estudiantes" Relationship="Self.FK_ID_Estudiante_Doc" FromRole="Estudiante" ToRole="Documentos_Estudiantes" />
+          <NavigationProperty Name="Padre_Tutor" Relationship="Self.FK_ID_Estudiante_Padre" FromRole="Estudiante" ToRole="Padre_Tutor" />
+          <NavigationProperty Name="Registro" Relationship="Self.FK_ID_Estudiante_Registro" FromRole="Estudiante" ToRole="Registro" />
+          <NavigationProperty Name="Grado" Relationship="Self.FK_ID_Grado_Estudiante" FromRole="Estudiante" ToRole="Grado" />
+        </EntityType>
+        <EntityType Name="Grado">
+          <Key>
+            <PropertyRef Name="ID_Grado" />
+          </Key>
+          <Property Name="ID_Grado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK_ID_Grado_Estudiante" FromRole="Grado" ToRole="Estudiante" />
+          <NavigationProperty Name="Materias" Relationship="Self.FK_ID_Grado_Materia" FromRole="Grado" ToRole="Materias" />
+          <NavigationProperty Name="Profesor" Relationship="Self.FK_ID_Grado_Profesor" FromRole="Grado" ToRole="Profesor" />
+        </EntityType>
+        <EntityType Name="Materias">
+          <Key>
+            <PropertyRef Name="ID_Materia" />
+          </Key>
+          <Property Name="ID_Materia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_Grado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Grado" Relationship="Self.FK_ID_Grado_Materia" FromRole="Materias" ToRole="Grado" />
+        </EntityType>
+        <EntityType Name="Padre_Tutor">
+          <Key>
+            <PropertyRef Name="ID_Tutor" />
+          </Key>
+          <Property Name="ID_Tutor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Estudiante" Type="Int32" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Parentesco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cedula" Type="Int64" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Profesion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="Int64" />
+          <Property Name="Celular" Type="Int64" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK_ID_Estudiante_Padre" FromRole="Padre_Tutor" ToRole="Estudiante" />
+        </EntityType>
+        <EntityType Name="Profesor">
+          <Key>
+            <PropertyRef Name="ID_Profesor" />
+          </Key>
+          <Property Name="ID_Profesor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Grado" Type="Int32" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cedula" Type="Int64" Nullable="false" />
+          <Property Name="Titulo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Curriculum" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="CartaAceptacion" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="Grado" Relationship="Self.FK_ID_Grado_Profesor" FromRole="Profesor" ToRole="Grado" />
+        </EntityType>
+        <EntityType Name="Registro">
+          <Key>
+            <PropertyRef Name="ID_Registro" />
+          </Key>
+          <Property Name="ID_Registro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Estudiante" Type="Int32" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contraseña" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK_ID_Estudiante_Registro" FromRole="Registro" ToRole="Estudiante" />
+        </EntityType>
+        <Association Name="FK_ID_Estudiante_Direc">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="Direccion" Type="Self.Direccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="ID_Estudiante" />
+            </Principal>
+            <Dependent Role="Direccion">
+              <PropertyRef Name="ID_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Estudiante_Doc">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="Documentos_Estudiantes" Type="Self.Documentos_Estudiantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="ID_Estudiante" />
+            </Principal>
+            <Dependent Role="Documentos_Estudiantes">
+              <PropertyRef Name="ID_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Estudiante_Padre">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="Padre_Tutor" Type="Self.Padre_Tutor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="ID_Estudiante" />
+            </Principal>
+            <Dependent Role="Padre_Tutor">
+              <PropertyRef Name="ID_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Estudiante_Registro">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+          <End Role="Registro" Type="Self.Registro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="ID_Estudiante" />
+            </Principal>
+            <Dependent Role="Registro">
+              <PropertyRef Name="ID_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Grado_Estudiante">
+          <End Role="Grado" Type="Self.Grado" Multiplicity="1" />
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grado">
+              <PropertyRef Name="ID_Grado" />
+            </Principal>
+            <Dependent Role="Estudiante">
+              <PropertyRef Name="ID_Grado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Grado_Materia">
+          <End Role="Grado" Type="Self.Grado" Multiplicity="1" />
+          <End Role="Materias" Type="Self.Materias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grado">
+              <PropertyRef Name="ID_Grado" />
+            </Principal>
+            <Dependent Role="Materias">
+              <PropertyRef Name="ID_Grado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Grado_Profesor">
+          <End Role="Grado" Type="Self.Grado" Multiplicity="1" />
+          <End Role="Profesor" Type="Self.Profesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grado">
+              <PropertyRef Name="ID_Grado" />
+            </Principal>
+            <Dependent Role="Profesor">
+              <PropertyRef Name="ID_Grado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SistemaEscolarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Direccion" EntityType="Self.Direccion" />
+          <EntitySet Name="Documentos_Estudiantes" EntityType="Self.Documentos_Estudiantes" />
+          <EntitySet Name="Estudiante" EntityType="Self.Estudiante" />
+          <EntitySet Name="Grado" EntityType="Self.Grado" />
+          <EntitySet Name="Materias" EntityType="Self.Materias" />
+          <EntitySet Name="Padre_Tutor" EntityType="Self.Padre_Tutor" />
+          <EntitySet Name="Profesor" EntityType="Self.Profesor" />
+          <EntitySet Name="Registro" EntityType="Self.Registro" />
+          <AssociationSet Name="FK_ID_Estudiante_Direc" Association="Self.FK_ID_Estudiante_Direc">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Direccion" EntitySet="Direccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Estudiante_Doc" Association="Self.FK_ID_Estudiante_Doc">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Documentos_Estudiantes" EntitySet="Documentos_Estudiantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Estudiante_Padre" Association="Self.FK_ID_Estudiante_Padre">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Padre_Tutor" EntitySet="Padre_Tutor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Estudiante_Registro" Association="Self.FK_ID_Estudiante_Registro">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Registro" EntitySet="Registro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Grado_Estudiante" Association="Self.FK_ID_Grado_Estudiante">
+            <End Role="Grado" EntitySet="Grado" />
+            <End Role="Estudiante" EntitySet="Estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Grado_Materia" Association="Self.FK_ID_Grado_Materia">
+            <End Role="Grado" EntitySet="Grado" />
+            <End Role="Materias" EntitySet="Materias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Grado_Profesor" Association="Self.FK_ID_Grado_Profesor">
+            <End Role="Grado" EntitySet="Grado" />
+            <End Role="Profesor" EntitySet="Profesor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SistemaEscolarModelStoreContainer" CdmEntityContainer="SistemaEscolarEntities">
+          <EntitySetMapping Name="Direccion">
+            <EntityTypeMapping TypeName="SistemaEscolarModel.Direccion">
+              <MappingFragment StoreEntitySet="Direccion">
+                <ScalarProperty Name="ID_Direccion" ColumnName="ID_Direccion" />
+                <ScalarProperty Name="ID_Estudiante" ColumnName="ID_Estudiante" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="No_Casa" ColumnName="No_Casa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documentos_Estudiantes">
+            <EntityTypeMapping TypeName="SistemaEscolarModel.Documentos_Estudiantes">
+              <MappingFragment StoreEntitySet="Documentos_Estudiantes">
+                <ScalarProperty Name="ID_Documentos" ColumnName="ID_Documentos" />
+                <ScalarProperty Name="ID_Estudiante" ColumnName="ID_Estudiante" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="ActaNacimiento" ColumnName="ActaNacimiento" />
+                <ScalarProperty Name="CertificadoMedico" ColumnName="CertificadoMedico" />
+                <ScalarProperty Name="CertificadoEscorlar" ColumnName="CertificadoEscorlar" />
+                <ScalarProperty Name="RecordNotas" ColumnName="RecordNotas" />
+                <ScalarProperty Name="CopiaCedula" ColumnName="CopiaCedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estudiante">
+            <EntityTypeMapping TypeName="SistemaEscolarModel.Estudiante">
+              <MappingFragment StoreEntitySet="Estudiante">
+                <ScalarProperty Name="ID_Estudiante" ColumnName="ID_Estudiante" />
+                <ScalarProperty Name="Primer_Nombre" ColumnName="Primer_Nombre" />
+                <ScalarProperty Name="Segundo_Nombre" ColumnName="Segundo_Nombre" />
+                <ScalarProperty Name="Primer_Apellido" ColumnName="Primer_Apellido" />
+                <ScalarProperty Name="Segundo_Apelido" ColumnName="Segundo_Apelido" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="ID_Grado" ColumnName="ID_Grado" />
+                <ScalarProperty Name="CentroEducativo" ColumnName="CentroEducativo" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="GradoSolicita" ColumnName="GradoSolicita" />
+                <ScalarProperty Name="DistritoEducativo" ColumnName="DistritoEducativo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grado">
+            <EntityTypeMapping TypeName="SistemaEscolarModel.Grado">
+              <MappingFragment StoreEntitySet="Grado">
+                <ScalarProperty Name="ID_Grado" ColumnName="ID_Grado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materias">
+            <EntityTypeMapping TypeName="SistemaEscolarModel.Materias">
+              <MappingFragment StoreEntitySet="Materias">
+                <ScalarProperty Name="ID_Materia" ColumnName="ID_Materia" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="ID_Grado" ColumnName="ID_Grado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Padre_Tutor">
+            <EntityTypeMapping TypeName="SistemaEscolarModel.Padre_Tutor">
+              <MappingFragment StoreEntitySet="Padre_Tutor">
+                <ScalarProperty Name="ID_Tutor" ColumnName="ID_Tutor" />
+                <ScalarProperty Name="ID_Estudiante" ColumnName="ID_Estudiante" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Parentesco" ColumnName="Parentesco" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Profesion" ColumnName="Profesion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profesor">
+            <EntityTypeMapping TypeName="SistemaEscolarModel.Profesor">
+              <MappingFragment StoreEntitySet="Profesor">
+                <ScalarProperty Name="ID_Profesor" ColumnName="ID_Profesor" />
+                <ScalarProperty Name="ID_Grado" ColumnName="ID_Grado" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Curriculum" ColumnName="Curriculum" />
+                <ScalarProperty Name="CartaAceptacion" ColumnName="CartaAceptacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registro">
+            <EntityTypeMapping TypeName="SistemaEscolarModel.Registro">
+              <MappingFragment StoreEntitySet="Registro">
+                <ScalarProperty Name="ID_Registro" ColumnName="ID_Registro" />
+                <ScalarProperty Name="ID_Estudiante" ColumnName="ID_Estudiante" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
