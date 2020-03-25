@@ -12,7 +12,10 @@ namespace SchoolSystem.Controllers
         {
             return View();
         }
-
+        public ActionResult InternalHome()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
