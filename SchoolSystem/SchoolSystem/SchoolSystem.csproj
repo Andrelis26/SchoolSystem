@@ -215,11 +215,6 @@
     <Content Include="Views\Grados\Details.cshtml" />
     <Content Include="Views\Grados\Edit.cshtml" />
     <Content Include="Views\Grados\Index.cshtml" />
-    <Content Include="Views\Registroes\Create.cshtml" />
-    <Content Include="Views\Registroes\Delete.cshtml" />
-    <Content Include="Views\Registroes\Details.cshtml" />
-    <Content Include="Views\Registroes\Edit.cshtml" />
-    <Content Include="Views\Registroes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
