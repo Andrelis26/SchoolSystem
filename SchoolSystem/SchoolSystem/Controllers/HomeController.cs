@@ -29,5 +29,11 @@ namespace SchoolSystem.Controllers
 
             return View();
         }
+        
+        public ActionResult Materias()
+        {
+            return View();
+        }
+       
     }
 }

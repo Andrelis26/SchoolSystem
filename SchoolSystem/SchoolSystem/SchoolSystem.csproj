@@ -208,6 +208,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\InternalHome.cshtml" />
     <Content Include="Views\Shared\_InternalHome.cshtml" />
+    <Content Include="Views\Home\Materias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
