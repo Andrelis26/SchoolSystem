@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegistroesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,6 +140,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\HomeDesign.css" />
+    <Content Include="Content\Login.css" />
     <Content Include="css\template.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\icomoon.svg" />
@@ -166,6 +168,8 @@
     <Content Include="Image\Logo-mescyt.png" />
     <Content Include="Image\minerd-e.jpg" />
     <Content Include="Image\mj_logo.jpg" />
+    <Content Include="Image\Picture-Login.png" />
+    <Content Include="Image\Rectangle 50.png" />
     <Content Include="Image\republica.png" />
     <Content Include="Image\school-logo.png" />
     <Content Include="Image\javier-trueba-iQPr1XkF5F0-unsplash.jpg" />
@@ -211,6 +215,11 @@
     <Content Include="Views\Grados\Details.cshtml" />
     <Content Include="Views\Grados\Edit.cshtml" />
     <Content Include="Views\Grados\Index.cshtml" />
+    <Content Include="Views\Registroes\Create.cshtml" />
+    <Content Include="Views\Registroes\Delete.cshtml" />
+    <Content Include="Views\Registroes\Details.cshtml" />
+    <Content Include="Views\Registroes\Edit.cshtml" />
+    <Content Include="Views\Registroes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

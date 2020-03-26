@@ -12,14 +12,14 @@
         <EntityTypeShape EntityType="SistemaEscolarModel.Materias" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Padre_Tutor" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Profesor" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SistemaEscolarModel.Registro" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Direc" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Doc" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Padre" ManuallyRouted="false" />
-        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Registro" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Grado_Estudiante" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Grado_Materia" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Grado_Profesor" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SistemaEscolarModel.Registro" Width="1.5" PointX="5.25" PointY="13.125" />
+        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Registro" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

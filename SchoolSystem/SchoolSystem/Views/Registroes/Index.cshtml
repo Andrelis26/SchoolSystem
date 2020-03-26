@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Model.Registro>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estudiante.Primer_Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contraseña)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estudiante.Primer_Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Registro }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_Registro }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Registro })
+        </td>
+    </tr>
+}
+
+</table>
