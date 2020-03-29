@@ -7,45 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+namespace SchoolSystem.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class Padre_Tutor
     {
         public int ID_Tutor { get; set; }
         public int ID_Estudiante { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
-        [Display(Name = "Nombre")]
-        [MaxLength(100)]
         public string Nombres { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
-        [Display(Name = "Apellidos")]
-        [MaxLength(100)]
         public string Apellidos { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
         public string Parentesco { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
-        [Display(Name = "Cédula")]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{7})[-. ]?([0-9]{1})$", ErrorMessage = "No. cédula no válido")]
         public long Cedula { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
-        [Display(Name = "Profesión")]
-        [MaxLength(100)]
+        public string Direccion { get; set; }
         public string Profesion { get; set; }
-
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Número de Teléfono no válido")]
-        [Display(Name = "Teléfono")]
         public Nullable<long> Telefono { get; set; }
-
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Número de Celular no válido")]
         public Nullable<long> Celular { get; set; }
     
         public virtual Estudiante Estudiante { get; set; }

@@ -1,0 +1,49 @@
+﻿@model Model.Direccion
+
+<div class="Direc" style="float:left; width:400px; height:auto; margin-left:40px; border: solid 2px #22233E;
+    padding-top:25px; padding-bottom:25px; border-radius:25px; margin-bottom:25px">
+
+            <h4 style="text-align:center; color:#22233E; font-size:25px">Direccion del Estudiante</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Calle, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Calle, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                    @Html.ValidationMessageFor(model => model.Calle, "", new { @class = "text-danger", @style = "margin-left:60px" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Provincia, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Provincia, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                    @Html.ValidationMessageFor(model => model.Provincia, "", new { @class = "text-danger", @style = "margin-left:60px" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Municipio, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Municipio, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                    @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger", @style = "margin-left:60px" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sector, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sector, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                    @Html.ValidationMessageFor(model => model.Sector, "", new { @class = "text-danger", @style = "margin-left:60px" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.No_Casa, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.No_Casa, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                    @Html.ValidationMessageFor(model => model.No_Casa, "", new { @class = "text-danger", @style = "margin-left:60px" })
+                </div>
+            </div>
+</div>

@@ -7,16 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+namespace SchoolSystem.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Registro
+    public partial class Profesor
     {
-        public int ID_Registro { get; set; }
-        public string Usuario { get; set; }
-        public byte[] Contraseña { get; set; }
-        public string Rol { get; set; }
+        public int ID_Profesor { get; set; }
+        public int ID_Grado { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
+        public long Cedula { get; set; }
+        public byte[] Titulo { get; set; }
+        public byte[] Curriculum { get; set; }
+        public byte[] CartaAceptacion { get; set; }
+    
+        public virtual Grado Grado { get; set; }
     }
 }

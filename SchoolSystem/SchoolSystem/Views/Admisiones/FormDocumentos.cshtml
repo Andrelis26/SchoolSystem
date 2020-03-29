@@ -1,0 +1,58 @@
+﻿@model Model.Documentos_Estudiantes
+
+<div class="Direc" style="float:left; width:400px; height:auto; margin-left:40px; border: solid 2px #22233E;
+    padding-top:25px; padding-bottom:25px; border-radius:25px; margin-bottom:25px">
+
+            <h4 style="text-align:center; color:#22233E; font-size:25px">Documentos del Estudiantes</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Foto, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+                <div class="col-md-10">
+                    <input type="file" name="imagen" id="imagen" style="margin-left:60px" required/>
+                    @Html.ValidationMessageFor(model => model.Foto, "", new { @class = "text-danger", @style = "margin-left:60px" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ActaNacimiento, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+                <div class="col-md-10">
+                    <input type="file" name="imagen" id="imagen" style="margin-left:60px" required/>
+                    @Html.ValidationMessageFor(model => model.ActaNacimiento, "", new { @class = "text-danger", @style = "margin-left:60px" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CertificadoMedico, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+                <div class="col-md-10">
+                    <input type="file" name="imagen" id="imagen" style="margin-left:60px" required/>
+                    @Html.ValidationMessageFor(model => model.CertificadoMedico, "", new { @class = "text-danger", @style = "margin-left:60px" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CopiaCedula, htmlAttributes: new { @class = "col-md-2", @style = "width:400px; margin-left:60px" })
+                <div class="col-md-10">
+                    <input type="file" name="imagen" id="imagen" style="margin-left:60px" required/>
+                    @Html.ValidationMessageFor(model => model.CopiaCedula, "", new { @class = "text-danger", @style = "margin-left:60px" })
+                </div>
+            </div>
+            <h2 style="text-align:center; color:#22233E; font-size:20px; margin-top:50px; margin-left:20px; margin-right:20px;
+                margin-bottom:50px">Si propviene de algún otro centro eductivo es requerido (de no ser así obviar esta parte):
+            </h2>
+            <div class="form-group">
+                @Html.LabelFor(model => model.CertificadoEscorlar, htmlAttributes: new { @class = "col-md-2", @style = "width:400px; margin-left:60px" })
+                <div class="col-md-10">
+                    <input type="file" name="imagen" id="imagen" style="margin-left:60px" />
+                    @Html.ValidationMessageFor(model => model.CertificadoEscorlar, "", new { @class = "text-danger", @style = "margin-left:60px" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.RecordNotas, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+                <div class="col-md-10">
+                    <input type="file" name="imagen" id="imagen" style="margin-left:60px" />
+                    @Html.ValidationMessageFor(model => model.RecordNotas, "", new { @class = "text-danger", @style = "margin-left:60px" })
+                </div>
+            </div>
+</div>

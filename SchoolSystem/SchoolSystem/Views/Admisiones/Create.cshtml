@@ -1,0 +1,140 @@
+﻿@model Model.Estudiante
+
+@{
+    ViewBag.Title = "Create";
+}
+<h2 style="text-align:center; color:#22233E; font-size:30px; margin-top:50px; margin-bottom:50px">Formulario de Admisión</h2>
+
+@using (Html.BeginForm("Create","Admisiones",FormMethod.Post,new {enctype="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="Estu" style="float:left; width:400px; height:auto; margin-left:40px; border: solid 2px #22233E;
+                 padding-top:25px; padding-bottom:16px; border-radius:25px; margin-bottom:25px">
+        <h4 style="text-align:center; color:#22233E; font-size:25px">Datos del Estudiante</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Primer_Nombre, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Primer_Nombre, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.Primer_Nombre, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Segundo_Nombre, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Segundo_Nombre, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.Segundo_Nombre, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Primer_Apellido, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Primer_Apellido, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.Primer_Apellido, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Segundo_Apelido, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Segundo_Apelido, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.Segundo_Apelido, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FechaNacimiento, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Edad, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Edad, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.Edad, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nacionalidad, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nacionalidad, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.Nacionalidad, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Sexo, new SelectList(new[] { "Masculino", "Femenino" }), "Seleccione", new { @class = "form-control", @style = "margin-left:60px" })
+                @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ID_Grado, "Grado que Solicita", htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.DropDownList("ID_Grado", null, "Seleccione", htmlAttributes: new { @class = "form-control", @style = "margin-left:60px" })
+                @Html.ValidationMessageFor(model => model.ID_Grado, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DistritoEducativo, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DistritoEducativo, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.DistritoEducativo, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+        <h2 style="text-align:center; color:#22233E; font-size:20px; margin-top:50px; margin-left:20px; margin-right:20px;
+        margin-bottom:50px">Si propviene de algún otro centro eductivo especifique (de no ser así obviar esta parte):</h2>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CentroEducativo, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CentroEducativo, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.CentroEducativo, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GradoSolicita, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GradoSolicita, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.GradoSolicita, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+    </div>
+    <div>
+        @{
+            Html.RenderPartial("FormDireccion");
+        }
+    </div>
+    <div>
+        @{
+            Html.RenderPartial("FormPadres");
+        }
+    </div>
+    <div>
+        @{
+            Html.RenderPartial("FormDocumentos");
+        }
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" id="bot" value="Enviar Formulario" />
+        </div>
+    </div>
+</div>
+}
+<div class="container">
+</div>

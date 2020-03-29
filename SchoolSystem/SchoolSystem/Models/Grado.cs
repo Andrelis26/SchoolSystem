@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+namespace SchoolSystem.Models
 {
     using System;
     using System.Collections.Generic;

@@ -13,11 +13,6 @@ namespace SchoolSystem.Controllers
             return View();
         }
 
-        public ActionResult InfoAdmi()
-        {
-            return View();
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
