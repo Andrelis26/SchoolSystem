@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>InternalHome</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar nav-custom navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Logo</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> [Nombre  usuario]</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 8%">
+        <div class="col-md-3">
+            <div class="list-group" style="position:fixed; width:22%">
+                <a href="#" class="list-group-item color-menu">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>   Menú
+                </a>
+                <a href="#" class="list-group-item height">  <span class="glyphicon glyphicon-home"></span> Inicio</a>
+                <a href="#" class="list-group-item height"> <span class="glyphicon glyphicon-book"></span> Materias</a>
+                <a href="#" class="list-group-item height"><span class="glyphicon glyphicon-list-alt"></span> Asignaciones</a>
+                <a href="#" class="list-group-item height"><span class="glyphicon glyphicon-ok"></span> Calificaciones</a>
+                <a href="#" class="list-group-item height"> </a>
+            </div>
+        </div>
+        <div class="container body-content col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</body>
+</html>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
