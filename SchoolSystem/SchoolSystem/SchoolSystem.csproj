@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdmisionesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -213,6 +214,7 @@
     <Content Include="Views\Admisiones\FormDireccion.cshtml" />
     <Content Include="Views\Admisiones\FormPadres.cshtml" />
     <Content Include="Views\Admisiones\FormDocumentos.cshtml" />
+    <Content Include="Views\Profe\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
