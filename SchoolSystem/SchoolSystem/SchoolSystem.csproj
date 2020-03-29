@@ -222,6 +222,13 @@
     <Content Include="Views\Admisiones\FormPadres.cshtml" />
     <Content Include="Views\Admisiones\FormDocumentos.cshtml" />
     <Content Include="Views\Profe\Index.cshtml" />
+    <Content Include="Views\Grados\Create.cshtml" />
+    <Content Include="Views\Grados\Delete.cshtml" />
+    <Content Include="Views\Grados\Details.cshtml" />
+    <Content Include="Views\Grados\Edit.cshtml" />
+    <Content Include="Views\Grados\Index.cshtml" />
+    <Content Include="Views\Home\InternalHome.cshtml" />
+    <Content Include="Views\Shared\_InternalHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
