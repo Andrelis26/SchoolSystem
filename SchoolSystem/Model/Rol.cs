@@ -12,24 +12,18 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Grado
+    public partial class Rol
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Grado()
+        public Rol()
         {
-            this.Estudiante = new HashSet<Estudiante>();
-            this.Materias = new HashSet<Materias>();
-            this.Profesor = new HashSet<Profesor>();
+            this.Registro = new HashSet<Registro>();
         }
     
-        public int ID_Grado { get; set; }
+        public int ID_Rol { get; set; }
         public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Estudiante> Estudiante { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Materias> Materias { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Profesor> Profesor { get; set; }
+        public virtual ICollection<Registro> Registro { get; set; }
     }
 }

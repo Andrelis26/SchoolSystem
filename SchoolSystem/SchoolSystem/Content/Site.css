@@ -4,6 +4,14 @@
     width: 100%;
 }
 
+.color-menu {
+    background-color: #22233E;
+    color: #fff !important;
+}
+.height{
+    height:60px;
+}
+
 .altura-slider {
     height: 550px;
 }
