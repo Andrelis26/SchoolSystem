@@ -15,10 +15,8 @@ namespace Model
     public partial class Registro
     {
         public int ID_Registro { get; set; }
-        public int ID_Estudiante { get; set; }
+        public string Rol { get; set; }
         public string Usuario { get; set; }
         public byte[] Contraseña { get; set; }
-    
-        public virtual Estudiante Estudiante { get; set; }
     }
 }

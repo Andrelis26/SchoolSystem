@@ -3,6 +3,7 @@
     ViewBag.Title = "Index";
 
 }
+
 <style>
     .jumbotron {
         margin-top: 50px;
@@ -16,16 +17,51 @@
         margin-left: 20px;
         margin-right: 20px;
     }
+
     .margin-text {
         margin-left: 86px;
         margin-right: 150px;
         margin-bottom: 40px;
     }
+
+    .margin-jumbotron {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .color-back {
+        background-color: #f5f5f5;
+        height: 700px;
+        color: #22233E;
+    }
+
+    .color-table {
+        color: #fff !important;
+        background-color: /*#22233E*/ #464545 !important;
+    }
+
+    .margin-input {
+        margin-bottom: 50px;
+        margin-left: 100px;
+        margin-right: 20px;
+        margin-top: 60px;
+    }
+
+    .btn-danger {
+        background-color: #22233E !important;
+        border-color: #22233E !important;
+    }
+
+    p {
+        font-size: 16px;
+        font-weight: 200;
+        font-style: normal;
+    }
 </style>
 
 
 <div class="row" style="margin-top: 30px;">
-    <div class="jumbotron">
+    <div class="jumbotron margin-jumbotron">
         <h3 class="margin-text">Descripcion del servicio</h3>
         <p class="text-justify margin-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -35,64 +71,93 @@
     </div>
 </div>
 
-<div class="row " style="margin-top: 30px; ">
-    <h3 class="margin-text">Dirigido A</h3>
-    <p class="margin-text">
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
 
-    <h3 class="margin-text">Costo del servicio</h3>
-    <p class="margin-text">
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
+
+<div class="row color-back" style="margin-top: 30px; ">
+    <div class="margin-text">
+
+        <h3>Dirigido A</h3>
+        <br />
+        <p>
+            Estudiantes que hayan finalizado el año escolar en esta institución y requieren de un record de notas de los cursos
+            realizados.
+        </p>
+        <br />
+        <h3>Costo del servicio</h3>
+        <br />
+        <p>
+            Este servicio tiene un valor totalmente gratis.
+        </p>
+        <br />
+        <h3>Tiempo de entrega del Resultado del Servicio:</h3>
+        <p><em><strong>En Línea:&nbsp;</strong> &nbsp;</em></p>
+        <p><em>Inmediatamente.</em></p>
+        <p><strong><em>Presencial:</em></strong></p>
+        <p>Unos 2 minutos, si es del año 2000 en adelante.</p>
+        <p>Un día, si es necesario inscribir en el sistema.</p>
+        <br />
+        <h3>Horario del Servicio:</h3>
+        <p><em><strong>En Línea:&nbsp;</strong> &nbsp;</em></p>
+        <p><em>24 horas - 7 días a la semana (365 días al año).</em></p>
+        <p><strong><em>Presencial:</em></strong></p>
+        <p>Lunes a viernes de 8:00 a.m. a 4:30 p.m.</p>
+    </div>
 </div>
 
-<div class="row" style="margin-top: 45px">
-    <div class="panel panel-default margin-" style="height: 320px">
-        <div class="panel-heading text-center">Solicitud Documentos</div>
+
+<div class="row" style="margin-top: 95px; margin-bottom: 100px">
+    <div class="panel panel-default margin-jumbotron">
+        <div class="panel-heading text-center color-table">Solicitud Documentos</div>
         <div class="panel-body">
-            <div class="form-horizontal margin-text">
-                <div class="form-group">
-                    @Html.Label("Año Escolar", new { @class = "col-md-2" })
-                    <div class="col-md-4">
+            <div class="margin-input">
 
-                        <input type="date" placeholder="Fecha" class="form-control" />
+                <div class="form-horizontal margin-text ">
+                    <div class="form-group">
+                        @Html.Label("Año Escolar", new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            <input type="number" placeholder="YYYY" class="form-control" min="2008" max="2025" name="Year">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" placeholder="Hasta" class="form-control" min="2008" max="2025" />
+
+                        </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.Label("Tipo de documento", new { @class = "col-md-2" })
+                        <div class="col-md-4">
 
-                        <input type="text" placeholder="Fecha" class="form-control" />
+                            <input type="text" placeholder="Fecha" class="form-control" />
 
+                        </div>
+                        <div class="col-md-4">
+
+                            <input type="text" placeholder="Nombre y Apellido Estudiante" class="form-control" name="NomnbreEstudiante" />
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Nombre Padres o Tutor", new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            <input type="text" placeholder="Nombre y Apellido" class="form-control" name="NombrePadres" />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="button" name="Solicitar" value="Solicitar" class="btn btn-danger btn-block" />
+                            <a class="btn btn-danger" title="Imprimir" target="_blank" href="@Url.Action("Print")"><i class="fa fa-print"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    @Html.Label("Tipo de documento", new { @class = "col-md-2" })
-                    <div class="col-md-4">
-
-                        <input type="text" placeholder="Fecha" class="form-control" />
-
-                    </div>
-                    <div class="col-md-4">
-
-                        <input type="text" placeholder="Fecha" class="form-control" />
-
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.Label("Nombre Padres o Tutor", new { @class = "col-md-2" })
-                    <div class="col-md-4">
-                        <input type="text" placeholder="Fecha" class="form-control" />
-                    </div>
-                    <div class="col-md-4">
-                        <input type="button" name="Solicitar" value="Solicitar" class="btn btn-danger btn-block" />
-                    </div>
-                </div>
-
-
             </div>
-
         </div>
     </div>
 
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script>
+        $("#datepicker").datepicker({
+            format: "yyyy",
+            viewMode: "years",
+            minViewMode: "years"
+        });
+    </script>
 </div>
+

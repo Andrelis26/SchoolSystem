@@ -56,6 +56,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -165,6 +168,7 @@
     <Content Include="Image\facebook.png" />
     <Content Include="Image\instagram.png" />
     <Content Include="Image\Logo-mescyt.png" />
+    <Content Include="Image\Logo_Ministerio_de_Educacin.png" />
     <Content Include="Image\minerd-e.jpg" />
     <Content Include="Image\mj_logo.jpg" />
     <Content Include="Image\republica.png" />
@@ -176,11 +180,16 @@
     <Content Include="Image\twitter.png" />
     <Content Include="Image\vasily-koloda-8CqDvPuo_kI-unsplash.jpg" />
     <Content Include="Image\youtube.png" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\icomoon.eot" />
     <Content Include="fonts\icomoon.ttf" />
     <Content Include="fonts\icomoon.woff" />
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -211,6 +220,7 @@
     <Content Include="Views\Shared\_InternalHome.cshtml" />
     <Content Include="Views\Home\Materias.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Service\RecordNotas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

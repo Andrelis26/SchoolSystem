@@ -14,6 +14,12 @@ namespace Model
     
     public partial class Profesor
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Profesor()
+        {
+            this.Calificaciones = new HashSet<Calificaciones>();
+        }
+    
         public int ID_Profesor { get; set; }
         public int ID_Grado { get; set; }
         public string Nombres { get; set; }
@@ -24,5 +30,7 @@ namespace Model
         public byte[] CartaAceptacion { get; set; }
     
         public virtual Grado Grado { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Calificaciones> Calificaciones { get; set; }
     }
 }
