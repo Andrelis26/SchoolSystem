@@ -7,28 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+namespace SchoolSystem.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Materias
+    public partial class Grado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Materias()
+        public Grado()
         {
-            this.Asignar_Tarea = new HashSet<Asignar_Tarea>();
-            this.Subir_Tarea = new HashSet<Subir_Tarea>();
+            this.Estudiante = new HashSet<Estudiante>();
+            this.Materias = new HashSet<Materias>();
+            this.Profesor = new HashSet<Profesor>();
         }
     
-        public int ID_Materia { get; set; }
-        public string Descripcion { get; set; }
         public int ID_Grado { get; set; }
+        public string Descripcion { get; set; }
     
-        public virtual Grado Grado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Asignar_Tarea> Asignar_Tarea { get; set; }
+        public virtual ICollection<Estudiante> Estudiante { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Subir_Tarea> Subir_Tarea { get; set; }
+        public virtual ICollection<Materias> Materias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Profesor> Profesor { get; set; }
     }
 }

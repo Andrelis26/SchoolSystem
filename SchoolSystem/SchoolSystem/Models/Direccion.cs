@@ -7,22 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+namespace SchoolSystem.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Padre_Tutor
+    public partial class Direccion
     {
-        public int ID_Tutor { get; set; }
+        public int ID_Direccion { get; set; }
         public int ID_Estudiante { get; set; }
-        public string Nombres { get; set; }
-        public string Apellidos { get; set; }
-        public string Parentesco { get; set; }
-        public long Cedula { get; set; }
-        public string Profesion { get; set; }
-        public Nullable<long> Telefono { get; set; }
-        public Nullable<long> Celular { get; set; }
+        public string Calle { get; set; }
+        public string Provincia { get; set; }
+        public string Municipio { get; set; }
+        public string Sector { get; set; }
+        public int No_Casa { get; set; }
     
         public virtual Estudiante Estudiante { get; set; }
     }

@@ -127,8 +127,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdmisionesController.cs" />
+    <Compile Include="Controllers\Asignar_TareaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,7 +220,6 @@
     <Content Include="Views\Grados\Index.cshtml" />
     <Content Include="Views\Home\InternalHome.cshtml" />
     <Content Include="Views\Shared\_InternalHome.cshtml" />
-    <Content Include="Views\Login\Account.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

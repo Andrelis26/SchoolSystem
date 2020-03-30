@@ -12,18 +12,14 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Padre_Tutor
+    public partial class Subir_Tarea
     {
-        public int ID_Tutor { get; set; }
-        public int ID_Estudiante { get; set; }
-        public string Nombres { get; set; }
-        public string Apellidos { get; set; }
-        public string Parentesco { get; set; }
-        public long Cedula { get; set; }
-        public string Profesion { get; set; }
-        public Nullable<long> Telefono { get; set; }
-        public Nullable<long> Celular { get; set; }
+        public int ID_Tarea { get; set; }
+        public byte[] Tarea { get; set; }
+        public Nullable<int> ID_Materia { get; set; }
+        public Nullable<int> ID_Registro { get; set; }
     
-        public virtual Estudiante Estudiante { get; set; }
+        public virtual Materias Materias { get; set; }
+        public virtual Registro Registro { get; set; }
     }
 }

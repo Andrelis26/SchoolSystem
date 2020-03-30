@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model
+namespace SchoolSystem.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SistemaEscolarEntities : DbContext
+    public partial class SistemaEscolarEntities1 : DbContext
     {
-        public SistemaEscolarEntities()
-            : base("name=SistemaEscolarEntities")
+        public SistemaEscolarEntities1()
+            : base("name=SistemaEscolarEntities1")
         {
         }
     

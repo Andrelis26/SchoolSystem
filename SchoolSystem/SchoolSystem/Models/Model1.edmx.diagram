@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7b2f1ab01aeb4a2faadc6b8d51e7d95e" Name="Diagram1">
+      <Diagram DiagramId="3811f1048bf04797ac3455a84a18aa67" Name="Diagram1">
         <EntityTypeShape EntityType="SistemaEscolarModel.Direccion" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Documentos_Estudiantes" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Estudiante" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
@@ -12,9 +12,11 @@
         <EntityTypeShape EntityType="SistemaEscolarModel.Materias" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Padre_Tutor" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Profesor" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaEscolarModel.Registro" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Direc" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Doc" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Padre" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Registro" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Grado_Estudiante" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Grado_Materia" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Grado_Profesor" ManuallyRouted="false" />

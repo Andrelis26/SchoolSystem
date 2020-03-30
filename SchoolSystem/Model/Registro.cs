@@ -14,11 +14,17 @@ namespace Model
     
     public partial class Registro
     {
-        public int ID_Registro { get; set; }
-        public int ID_Rol { get; set; }
-        public string Usuario { get; set; }
-        public string Contraseña { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Registro()
+        {
+            this.Subir_Tarea = new HashSet<Subir_Tarea>();
+        }
     
-        public virtual Rol Rol { get; set; }
+        public int ID_Registro { get; set; }
+        public int ID_Estudiante { get; set; }
+        public string Usuario { get; set; }
+        public byte[] Contraseña { get; set; }
+    
+        public virtual Estudiante Estudiante { get; set; }
     }
 }

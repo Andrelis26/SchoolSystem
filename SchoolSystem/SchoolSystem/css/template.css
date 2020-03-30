@@ -568,3 +568,29 @@ ul#infoFooter {
 #empezar {
     text-align: center;
 }
+
+#bot {
+    float: right;
+    margin-right: 140px;
+    width: 200px;
+    height: 60px;
+    margin-bottom: 20px;
+    background: #22233E;
+    color: whitesmoke;
+    font-size: 18px;
+    border: 2px solid #22233E;
+    border-radius: 5px;
+}
+
+    #bot:hover {
+        float: right;
+        margin-right: 140px;
+        width: 200px;
+        height: 60px;
+        margin-bottom: 20px;
+        background: #fff;
+        color: #22233E;
+        font-size: 19px;
+        border: 2px solid #22233E;
+        border-radius: 5px;
+    }
