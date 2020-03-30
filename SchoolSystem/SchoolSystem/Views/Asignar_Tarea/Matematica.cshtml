@@ -24,7 +24,7 @@
 
         <p style="margin-left:20px; margin-top:10px; color:black; text-align:left; margin-right:20px">@Html.DisplayFor(modelItem => item.Contenido)</p>
 
-        @using (Html.BeginForm("CreateTarea", "Subir_Tarea", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("TareaMatematica", "Subir_Tarea", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
 
