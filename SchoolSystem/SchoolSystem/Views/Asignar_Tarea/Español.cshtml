@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Model.Asignar_Tarea>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    Layout = "~/Views/Shared/MenuProfesores.cshtml";
+}
+
+<h2 style="margin-left:130px; color:#22233E; font-size:30px; margin-top:50px; margin-bottom:30px">Tareas Asignadas</h2>
+
+<p style="margin-left:150px; margin-bottom:30px">
+    @Html.ActionLink("Nueva Tarea", "Create", new { }, new { @Class = "btn btn-default" })
+</p>
+
+
+@foreach (var item in Model)
+{
+<div class="MostrarTarea" style="width:auto; height:auto; margin-left:130px; border: solid 2px #22233E;
+                 padding-bottom:15px; border-radius:25px; margin-bottom:25px; margin-right:100px; min-width:325px">
+
+    <h2 style="margin-left:20px; color:#22233E; margin-right:20px">@Html.DisplayFor(modelItem => item.Titulo)</h2>
+
+    <p style="margin-left:20px; margin-top:10px; color:black; text-align:left; margin-right:20px">@Html.DisplayFor(modelItem => item.Contenido)</p>
+
+    @using (Html.BeginForm("CreateTarea", "Subir_Tarea", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="file" name="tarea" id="tarea" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="submit" value="Subir Tarea" class="btn btn-default"
+                       style="margin-bottom:20px; margin-top:20px;" />
+            </div>
+        </div>
+
+        if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissable">
+                <strong>@TempData["SuccessMessage"]</strong>
+            </div>
+        }
+    }
+
+    <div style="margin-top:20px; margin-left:20px;">
+        @Html.ActionLink("Editar", "Edit", new { id = item.ID_AsignarTarea }, new { @Class = "btn btn-default" }) |
+        @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_AsignarTarea }, new { @Class = "btn btn-default" })
+    </div>
+
+</div>
+}
+
+

@@ -128,8 +128,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdmisionesController.cs" />
+    <Compile Include="Controllers\Asignar_TareaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProfeController.cs" />
+    <Compile Include="Controllers\Subir_TareaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,7 +222,19 @@
     <Content Include="Views\Admisiones\FormDireccion.cshtml" />
     <Content Include="Views\Admisiones\FormPadres.cshtml" />
     <Content Include="Views\Admisiones\FormDocumentos.cshtml" />
-    <Content Include="Views\Profe\Index.cshtml" />
+    <Content Include="Views\Shared\MenuProfesores.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Create.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Delete.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Edit.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Index.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Español.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Matematica.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Sociales.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Naturales.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Religion.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Deporte.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Arte.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Optativa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

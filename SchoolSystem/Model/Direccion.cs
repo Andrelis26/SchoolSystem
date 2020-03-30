@@ -11,31 +11,15 @@ namespace Model
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class Direccion
     {
         public int ID_Direccion { get; set; }
         public int ID_Estudiante { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
-        [MaxLength(100)]
         public string Calle { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
-        [MaxLength(100)]
         public string Provincia { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
-        [MaxLength(100)]
         public string Municipio { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
-        [MaxLength(100)]
         public string Sector { get; set; }
-
-        [Required(ErrorMessage = "Este campo es obligatorio")]
-        [Display(Name = "No. Casa")]
         public int No_Casa { get; set; }
     
         public virtual Estudiante Estudiante { get; set; }

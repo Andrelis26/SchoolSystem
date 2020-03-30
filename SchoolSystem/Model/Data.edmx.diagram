@@ -19,6 +19,9 @@
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Grado_Materia" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Grado_Profesor" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Registro" Width="1.5" PointX="3.75" PointY="12.25" />
+        <EntityTypeShape EntityType="SistemaEscolarModel.Asignar_Tarea" Width="1.5" PointX="5.25" PointY="15.125" />
+        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Materia_AsignarTarea" />
+        <EntityTypeShape EntityType="SistemaEscolarModel.Subir_Tarea" Width="1.5" PointX="7.375" PointY="6.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -11,29 +11,16 @@ namespace Model
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class Documentos_Estudiantes
     {
         public int ID_Documentos { get; set; }
         public int ID_Estudiante { get; set; }
-
-        [Display(Name = "Foto 2x2")]
         public byte[] Foto { get; set; }
-
-        [Display(Name = "Acta de Nacimiento")]
         public byte[] ActaNacimiento { get; set; }
-
-        [Display(Name = "Certificado Médico")]
         public byte[] CertificadoMedico { get; set; }
-
-        [Display(Name = "Certificado Escolar")]
         public byte[] CertificadoEscorlar { get; set; }
-
-        [Display(Name = "Record de Notas")]
         public byte[] RecordNotas { get; set; }
-
-        [Display(Name = "Copia de Cédula (Padre, Madre o Tutor)")]
         public byte[] CopiaCedula { get; set; }
     
         public virtual Estudiante Estudiante { get; set; }
