@@ -18,6 +18,7 @@ namespace Model
         public Materias()
         {
             this.Asignar_Tarea = new HashSet<Asignar_Tarea>();
+            this.Subir_Tarea = new HashSet<Subir_Tarea>();
         }
     
         public int ID_Materia { get; set; }
@@ -27,5 +28,7 @@ namespace Model
         public virtual Grado Grado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asignar_Tarea> Asignar_Tarea { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subir_Tarea> Subir_Tarea { get; set; }
     }
 }

@@ -107,6 +107,7 @@
           <Property Name="Usuario" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Contraseña" Type="varbinary(max)" Nullable="false" />
           <Property Name="Rol" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Estudiante" Type="int" />
         </EntityType>
         <EntityType Name="Subir_Tarea">
           <Key>
@@ -114,6 +115,8 @@
           </Key>
           <Property Name="ID_Tarea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Tarea" Type="varbinary(max)" />
+          <Property Name="ID_Materia" Type="int" />
+          <Property Name="ID_Registro" Type="int" />
         </EntityType>
         <Association Name="FK_ID_Estudiante_Direc">
           <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
@@ -147,6 +150,18 @@
               <PropertyRef Name="ID_Estudiante" />
             </Principal>
             <Dependent Role="Padre_Tutor">
+              <PropertyRef Name="ID_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Estudiante_Registro">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="0..1" />
+          <End Role="Registro" Type="Self.Registro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="ID_Estudiante" />
+            </Principal>
+            <Dependent Role="Registro">
               <PropertyRef Name="ID_Estudiante" />
             </Dependent>
           </ReferentialConstraint>
@@ -199,6 +214,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ID_Materia_Tarea">
+          <End Role="Materias" Type="Self.Materias" Multiplicity="0..1" />
+          <End Role="Subir_Tarea" Type="Self.Subir_Tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materias">
+              <PropertyRef Name="ID_Materia" />
+            </Principal>
+            <Dependent Role="Subir_Tarea">
+              <PropertyRef Name="ID_Materia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Registro_Tarea">
+          <End Role="Registro" Type="Self.Registro" Multiplicity="0..1" />
+          <End Role="Subir_Tarea" Type="Self.Subir_Tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registro">
+              <PropertyRef Name="ID_Registro" />
+            </Principal>
+            <Dependent Role="Subir_Tarea">
+              <PropertyRef Name="ID_Registro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SistemaEscolarModelStoreContainer">
           <EntitySet Name="Asignar_Tarea" EntityType="Self.Asignar_Tarea" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Direccion" EntityType="Self.Direccion" Schema="dbo" store:Type="Tables" />
@@ -222,6 +261,10 @@
             <End Role="Estudiante" EntitySet="Estudiante" />
             <End Role="Padre_Tutor" EntitySet="Padre_Tutor" />
           </AssociationSet>
+          <AssociationSet Name="FK_ID_Estudiante_Registro" Association="Self.FK_ID_Estudiante_Registro">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Registro" EntitySet="Registro" />
+          </AssociationSet>
           <AssociationSet Name="FK_ID_Grado_Estudiante" Association="Self.FK_ID_Grado_Estudiante">
             <End Role="Grado" EntitySet="Grado" />
             <End Role="Estudiante" EntitySet="Estudiante" />
@@ -237,6 +280,14 @@
           <AssociationSet Name="FK_ID_Materia_AsignarTarea" Association="Self.FK_ID_Materia_AsignarTarea">
             <End Role="Materias" EntitySet="Materias" />
             <End Role="Asignar_Tarea" EntitySet="Asignar_Tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Materia_Tarea" Association="Self.FK_ID_Materia_Tarea">
+            <End Role="Materias" EntitySet="Materias" />
+            <End Role="Subir_Tarea" EntitySet="Subir_Tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Registro_Tarea" Association="Self.FK_ID_Registro_Tarea">
+            <End Role="Registro" EntitySet="Registro" />
+            <End Role="Subir_Tarea" EntitySet="Subir_Tarea" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -291,6 +342,7 @@
           <NavigationProperty Name="Documentos_Estudiantes" Relationship="Self.FK_ID_Estudiante_Doc" FromRole="Estudiante" ToRole="Documentos_Estudiantes" />
           <NavigationProperty Name="Padre_Tutor" Relationship="Self.FK_ID_Estudiante_Padre" FromRole="Estudiante" ToRole="Padre_Tutor" />
           <NavigationProperty Name="Grado" Relationship="Self.FK_ID_Grado_Estudiante" FromRole="Estudiante" ToRole="Grado" />
+          <NavigationProperty Name="Registro" Relationship="SistemaEscolarModel.FK_ID_Estudiante_Registro" FromRole="Estudiante" ToRole="Registro" />
         </EntityType>
         <EntityType Name="Grado">
           <Key>
@@ -311,6 +363,7 @@
           <Property Name="ID_Grado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Grado" Relationship="Self.FK_ID_Grado_Materia" FromRole="Materias" ToRole="Grado" />
           <NavigationProperty Name="Asignar_Tarea" Relationship="SistemaEscolarModel.FK_ID_Materia_AsignarTarea" FromRole="Materias" ToRole="Asignar_Tarea" />
+          <NavigationProperty Name="Subir_Tarea" Relationship="SistemaEscolarModel.FK_ID_Materia_Tarea" FromRole="Materias" ToRole="Subir_Tarea" />
         </EntityType>
         <EntityType Name="Padre_Tutor">
           <Key>
@@ -452,6 +505,18 @@
             <End Role="Asignar_Tarea" EntitySet="Asignar_Tarea" />
           </AssociationSet>
           <EntitySet Name="Subir_Tarea" EntityType="SistemaEscolarModel.Subir_Tarea" />
+          <AssociationSet Name="FK_ID_Estudiante_Registro" Association="SistemaEscolarModel.FK_ID_Estudiante_Registro">
+            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Registro" EntitySet="Registro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Materia_Tarea" Association="SistemaEscolarModel.FK_ID_Materia_Tarea">
+            <End Role="Materias" EntitySet="Materias" />
+            <End Role="Subir_Tarea" EntitySet="Subir_Tarea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ID_Registro_Tarea" Association="SistemaEscolarModel.FK_ID_Registro_Tarea">
+            <End Role="Registro" EntitySet="Registro" />
+            <End Role="Subir_Tarea" EntitySet="Subir_Tarea" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Registro">
           <Key>
@@ -461,6 +526,9 @@
           <Property Name="Usuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Contraseña" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="Rol" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Estudiante" Type="Int32" />
+          <NavigationProperty Name="Estudiante" Relationship="SistemaEscolarModel.FK_ID_Estudiante_Registro" FromRole="Registro" ToRole="Estudiante" />
+          <NavigationProperty Name="Subir_Tarea" Relationship="SistemaEscolarModel.FK_ID_Registro_Tarea" FromRole="Registro" ToRole="Subir_Tarea" />
         </EntityType>
         <EntityType Name="Asignar_Tarea">
           <Key>
@@ -490,7 +558,47 @@
           </Key>
           <Property Name="ID_Tarea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Tarea" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ID_Materia" Type="Int32" />
+          <NavigationProperty Name="Materias" Relationship="SistemaEscolarModel.FK_ID_Materia_Tarea" FromRole="Subir_Tarea" ToRole="Materias" />
+          <Property Name="ID_Registro" Type="Int32" />
+          <NavigationProperty Name="Registro" Relationship="SistemaEscolarModel.FK_ID_Registro_Tarea" FromRole="Subir_Tarea" ToRole="Registro" />
         </EntityType>
+        <Association Name="FK_ID_Estudiante_Registro">
+          <End Type="SistemaEscolarModel.Estudiante" Role="Estudiante" Multiplicity="0..1" />
+          <End Type="SistemaEscolarModel.Registro" Role="Registro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="ID_Estudiante" />
+            </Principal>
+            <Dependent Role="Registro">
+              <PropertyRef Name="ID_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Materia_Tarea">
+          <End Type="SistemaEscolarModel.Materias" Role="Materias" Multiplicity="0..1" />
+          <End Type="SistemaEscolarModel.Subir_Tarea" Role="Subir_Tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materias">
+              <PropertyRef Name="ID_Materia" />
+            </Principal>
+            <Dependent Role="Subir_Tarea">
+              <PropertyRef Name="ID_Materia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Registro_Tarea">
+          <End Type="SistemaEscolarModel.Registro" Role="Registro" Multiplicity="0..1" />
+          <End Type="SistemaEscolarModel.Subir_Tarea" Role="Subir_Tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registro">
+              <PropertyRef Name="ID_Registro" />
+            </Principal>
+            <Dependent Role="Subir_Tarea">
+              <PropertyRef Name="ID_Registro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -592,6 +700,7 @@
           <EntitySetMapping Name="Registro">
             <EntityTypeMapping TypeName="SistemaEscolarModel.Registro">
               <MappingFragment StoreEntitySet="Registro">
+                <ScalarProperty Name="ID_Estudiante" ColumnName="ID_Estudiante" />
                 <ScalarProperty Name="Rol" ColumnName="Rol" />
                 <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
@@ -612,6 +721,8 @@
           <EntitySetMapping Name="Subir_Tarea">
             <EntityTypeMapping TypeName="SistemaEscolarModel.Subir_Tarea">
               <MappingFragment StoreEntitySet="Subir_Tarea">
+                <ScalarProperty Name="ID_Registro" ColumnName="ID_Registro" />
+                <ScalarProperty Name="ID_Materia" ColumnName="ID_Materia" />
                 <ScalarProperty Name="Tarea" ColumnName="Tarea" />
                 <ScalarProperty Name="ID_Tarea" ColumnName="ID_Tarea" />
               </MappingFragment>
