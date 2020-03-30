@@ -222,6 +222,14 @@
     <Content Include="Views\Admisiones\FormDireccion.cshtml" />
     <Content Include="Views\Admisiones\FormPadres.cshtml" />
     <Content Include="Views\Admisiones\FormDocumentos.cshtml" />
+    <Content Include="Views\Profe\Index.cshtml" />
+    <Content Include="Views\Grados\Create.cshtml" />
+    <Content Include="Views\Grados\Delete.cshtml" />
+    <Content Include="Views\Grados\Details.cshtml" />
+    <Content Include="Views\Grados\Edit.cshtml" />
+    <Content Include="Views\Grados\Index.cshtml" />
+    <Content Include="Views\Home\InternalHome.cshtml" />
+    <Content Include="Views\Shared\_InternalHome.cshtml" />
     <Content Include="Views\Shared\MenuProfesores.cshtml" />
     <Content Include="Views\Asignar_Tarea\Create.cshtml" />
     <Content Include="Views\Asignar_Tarea\Delete.cshtml" />
