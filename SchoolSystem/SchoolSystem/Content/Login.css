@@ -16,6 +16,10 @@
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+.color-menu {
+    background-color: #22233E;
+    color: #fff !important;
+}
 
 .main-head {
     height: 150px;

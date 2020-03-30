@@ -12,13 +12,18 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Registro
+    public partial class Rol
     {
-        public int ID_Registro { get; set; }
-        public int ID_Rol { get; set; }
-        public string Usuario { get; set; }
-        public string Contraseña { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Rol()
+        {
+            this.Registro = new HashSet<Registro>();
+        }
     
-        public virtual Rol Rol { get; set; }
+        public int ID_Rol { get; set; }
+        public string Descripcion { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Registro> Registro { get; set; }
     }
 }

@@ -128,7 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RegistroesController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,6 +160,7 @@
     <Content Include="images\separator.gif" />
     <Content Include="images\slideShadow.png" />
     <Content Include="Image\1200px-Coat_of_arms_of_the_Dominican_Republic.svg.png" />
+    <Content Include="Image\3er_entretitulo_8_7_0.jpg" />
     <Content Include="Image\EduSoft.png" />
     <Content Include="Image\EG8m2NCWwA8rfow.jpg" />
     <Content Include="Image\element5-digital-OyCl7Y4y0Bk-unsplash.jpg" />
@@ -210,11 +211,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\InfoAdmi.cshtml" />
     <Content Include="Views\Grados\Create.cshtml" />
     <Content Include="Views\Grados\Delete.cshtml" />
     <Content Include="Views\Grados\Details.cshtml" />
     <Content Include="Views\Grados\Edit.cshtml" />
     <Content Include="Views\Grados\Index.cshtml" />
+    <Content Include="Views\Home\InternalHome.cshtml" />
+    <Content Include="Views\Shared\_InternalHome.cshtml" />
+    <Content Include="Views\Login\Account.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

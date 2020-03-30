@@ -95,6 +95,9 @@
     <Compile Include="Registro.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Rol.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Data.edmx">

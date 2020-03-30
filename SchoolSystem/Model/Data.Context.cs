@@ -33,5 +33,6 @@ namespace Model
         public virtual DbSet<Padre_Tutor> Padre_Tutor { get; set; }
         public virtual DbSet<Profesor> Profesor { get; set; }
         public virtual DbSet<Registro> Registro { get; set; }
+        public virtual DbSet<Rol> Rol { get; set; }
     }
 }

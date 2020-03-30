@@ -22,8 +22,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> [Nombre  usuario]</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> @Session["Usuario"]</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a href="/Login/Logout"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+                    }
+
                 </ul>
             </div>
         </div>
