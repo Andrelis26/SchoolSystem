@@ -6,13 +6,6 @@
     Layout = "~/Views/Shared/MenuProfesores.cshtml";
 }
 
-<h2>Inicio</h2>
-
-<a href="/Asignar_Tarea/Español">Español</a>
-<a href="/Asignar_Tarea/Matematica">Mate</a>
-<a href="/Asignar_Tarea/Sociales">Soci</a>
-<a href="/Asignar_Tarea/Naturales">Natu</a>
-<a href="/Asignar_Tarea/Religion">Reli</a>
-<a href="/Asignar_Tarea/Deporte">Depo</a>
-<a href="/Asignar_Tarea/Arte">Arte</a>
-<a href="/Asignar_Tarea/Optativa">Opta</a>
+@{ 
+    Html.RenderPartial("~/Views/Shared/Lista_Materias.cshtml");
+}

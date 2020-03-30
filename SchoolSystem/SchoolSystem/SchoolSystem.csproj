@@ -243,6 +243,7 @@
     <Content Include="Views\Asignar_Tarea\Deporte.cshtml" />
     <Content Include="Views\Asignar_Tarea\Arte.cshtml" />
     <Content Include="Views\Asignar_Tarea\Optativa.cshtml" />
+    <Content Include="Views\Shared\Lista_Materias.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
