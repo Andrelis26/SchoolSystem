@@ -23,3 +23,9 @@ li {
     margin-left: 40px;
     margin-right: 40px;
 }
+.Font{
+    font-size: 14px;
+    font-stretch: expanded;
+    font-weight: 600;
+    margin-right: 2px;
+}

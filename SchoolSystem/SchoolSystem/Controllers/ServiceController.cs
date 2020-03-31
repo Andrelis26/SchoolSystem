@@ -24,8 +24,11 @@ namespace SchoolSystem.Controllers
 
         public ActionResult RecordNotas(string PrimerNombre, string PrimerApellido, string SegundoApellido, string NombrePadres, string Year)
         {
-            var Student = db.Calificaciones.ToList().Where(x => x.Estudiante.Primer_Nombre == PrimerNombre && x.Estudiante.Primer_Apellido == PrimerApellido && x.Estudiante.Segundo_Apelido == SegundoApellido);
-            var Calification = db.Calificaciones.FirstOrDefault(x => x.Estudiante.Primer_Nombre == PrimerNombre);
+            var Student = db.Calificaciones.ToList().Where(x => x.Estudiante.Primer_Nombre == PrimerNombre && x.Estudiante.Primer_Apellido == PrimerApellido && x.Estudiante.Segundo_Apelido == SegundoApellido && x.Id_Estudiante == x.Estudiante.ID_Estudiante);
+            var Calification = db.Calificaciones.FirstOrDefault(x => x.Estudiante.Primer_Apellido == PrimerApellido);
+            var Nombre = Calification.Estudiante.Primer_Nombre + " " + Calification.Estudiante.Primer_Apellido + " " + Calification.Estudiante.Segundo_Apelido;
+            
+            ViewBag.Nombre = Nombre;
             ViewBag.Student = Student;
 
             if (Calification == null)
