@@ -130,6 +130,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CalificacionesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
@@ -143,6 +144,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\HomeDesign.css" />
+    <Content Include="Content\RecordNotas.css" />
     <Content Include="css\template.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\icomoon.svg" />
@@ -221,6 +223,11 @@
     <Content Include="Views\Home\Materias.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Views\Service\RecordNotas.cshtml" />
+    <Content Include="Views\Calificaciones\Create.cshtml" />
+    <Content Include="Views\Calificaciones\Delete.cshtml" />
+    <Content Include="Views\Calificaciones\Details.cshtml" />
+    <Content Include="Views\Calificaciones\Edit.cshtml" />
+    <Content Include="Views\Calificaciones\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

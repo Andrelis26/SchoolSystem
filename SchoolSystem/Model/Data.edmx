@@ -98,9 +98,9 @@
           <Property Name="Nombres" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Cedula" Type="bigint" Nullable="false" />
-          <Property Name="Titulo" Type="varbinary(max)" Nullable="false" />
-          <Property Name="Curriculum" Type="varbinary(max)" Nullable="false" />
-          <Property Name="CartaAceptacion" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Titulo" Type="varbinary(max)" />
+          <Property Name="Curriculum" Type="varbinary(max)" />
+          <Property Name="CartaAceptacion" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Registro">
           <Key>
@@ -366,9 +366,9 @@
           <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Cedula" Type="Int64" Nullable="false" />
-          <Property Name="Titulo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="Curriculum" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="CartaAceptacion" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Titulo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Curriculum" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CartaAceptacion" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Grado" Relationship="Self.FK_ID_Grado_Profesor" FromRole="Profesor" ToRole="Grado" />
           <NavigationProperty Name="Calificaciones" Relationship="SistemaEscolarModel.FK_Calificaciones_Profesor" FromRole="Profesor" ToRole="Calificaciones" />
         </EntityType>

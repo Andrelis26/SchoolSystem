@@ -5,30 +5,49 @@ using System.Web;
 using System.Web.Mvc;
 using Rotativa;
 using Rotativa.Options;
+using Model;
+using System.Web.Services.Description;
 
 namespace SchoolSystem.Controllers
 {
+
     public class ServiceController : Controller
     {
+        SistemaEscolarEntities db = new SistemaEscolarEntities();
+
         // GET: Service
-        public ActionResult Index()
+        public ActionResult Index(string message = "")
         {
+            ViewBag.Message = message;
             return View();
         }
 
-        public ActionResult RecordNotas()
+        public ActionResult RecordNotas(string PrimerNombre, string PrimerApellido, string SegundoApellido, string NombrePadres, string Year)
         {
-            return View();
+            var Student = db.Calificaciones.ToList().Where(x => x.Estudiante.Primer_Nombre == PrimerNombre && x.Estudiante.Primer_Apellido == PrimerApellido && x.Estudiante.Segundo_Apelido == SegundoApellido);
+            var Calification = db.Calificaciones.FirstOrDefault(x => x.Estudiante.Primer_Nombre == PrimerNombre);
+            ViewBag.Student = Student;
+
+            if (Calification == null)
+            {
+                return RedirectToAction("Index", new { message = "No Existe este registro, favor ingrese valores validos" });
+            }
+            else
+            {
+                return View();
+            }
+
+
         }
+
+
 
         public ActionResult Print()
         {
-            var report = new ActionAsPdf("RecordNotas");
-            report.FileName = "RecordNotas.pdf";
-            report.PageOrientation = Orientation.Landscape;
-            report.PageSize = Size.A4;
-            report.PageMargins = new Margins(10, 5, 10, 5);
-            return report;
+            return new ActionAsPdf("RecordNotas") { FileName = "RecordNotas.pdf" };
         }
+
+
     }
+
 }
