@@ -130,6 +130,11 @@
     <Compile Include="Controllers\AdmisionesController.cs" />
     <Compile Include="Controllers\Asignar_TareaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MateriasController.cs" />
+    <Compile Include="Controllers\RegistroesController.cs" />
+    <Compile Include="Controllers\Subir_Tarea1Controller.cs" />
+    <Compile Include="Controllers\Subir_TareaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -220,6 +225,46 @@
     <Content Include="Views\Grados\Index.cshtml" />
     <Content Include="Views\Home\InternalHome.cshtml" />
     <Content Include="Views\Shared\_InternalHome.cshtml" />
+    <Content Include="Views\Login\Account.cshtml" />
+    <Content Include="Views\Shared\MenuProfesores.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Create.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Delete.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Edit.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Index.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Español.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Matematica.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Sociales.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Naturales.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Religion.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Deporte.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Arte.cshtml" />
+    <Content Include="Views\Asignar_Tarea\Optativa.cshtml" />
+    <Content Include="Views\Shared\Lista_Materias.cshtml" />
+    <Content Include="Views\Materias\Create.cshtml" />
+    <Content Include="Views\Materias\Delete.cshtml" />
+    <Content Include="Views\Materias\Details.cshtml" />
+    <Content Include="Views\Materias\Edit.cshtml" />
+    <Content Include="Views\Materias\Index.cshtml" />
+    <Content Include="Views\Registroes\Create.cshtml" />
+    <Content Include="Views\Registroes\Delete.cshtml" />
+    <Content Include="Views\Registroes\Details.cshtml" />
+    <Content Include="Views\Registroes\Edit.cshtml" />
+    <Content Include="Views\Registroes\Index.cshtml" />
+    <Content Include="Views\Materias\Calificacion.cshtml" />
+    <Content Include="Views\Subir_Tarea\Index.cshtml" />
+    <Content Include="Views\Subir_Tarea1\Create.cshtml" />
+    <Content Include="Views\Subir_Tarea1\Delete.cshtml" />
+    <Content Include="Views\Subir_Tarea1\Details.cshtml" />
+    <Content Include="Views\Subir_Tarea1\Edit.cshtml" />
+    <Content Include="Views\Subir_Tarea1\Index.cshtml" />
+    <Content Include="Views\Subir_Tarea1\TareaEspañol.cshtml" />
+    <Content Include="Views\Subir_Tarea1\TareaMatematica.cshtml" />
+    <Content Include="Views\Subir_Tarea1\TareaNaturales.cshtml" />
+    <Content Include="Views\Subir_Tarea1\TareaSociales.cshtml" />
+    <Content Include="Views\Subir_Tarea1\TareaReligion.cshtml" />
+    <Content Include="Views\Subir_Tarea1\TareaDeporte.cshtml" />
+    <Content Include="Views\Subir_Tarea1\TareaArte.cshtml" />
+    <Content Include="Views\Subir_Tarea1\TareaOptativa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

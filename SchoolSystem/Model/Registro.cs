@@ -21,10 +21,13 @@ namespace Model
         }
     
         public int ID_Registro { get; set; }
-        public int ID_Estudiante { get; set; }
+        public Nullable<int> ID_Estudiante { get; set; }
         public string Usuario { get; set; }
-        public byte[] Contraseña { get; set; }
+        public string Contraseña { get; set; }
+        public string Rol { get; set; }
     
         public virtual Estudiante Estudiante { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subir_Tarea> Subir_Tarea { get; set; }
     }
 }

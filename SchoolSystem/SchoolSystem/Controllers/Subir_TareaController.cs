@@ -17,7 +17,15 @@ namespace SchoolSystem.Controllers
         // GET: Subir_Tarea
         public ActionResult Index()
         {
-            return View(db.Subir_Tarea.ToList());
+            var subir_Tarea = db.Subir_Tarea.Include(s => s.Materias).Include(s => s.Registro);
+            return View(subir_Tarea.ToList());
+        }
+
+        public ActionResult Create()
+        {
+            ViewBag.ID_Materia = new SelectList(db.Materias, "ID_Materia", "Descripcion");
+            ViewBag.ID_Registro = new SelectList(db.Registro, "ID_Registro", "Usuario");
+            return View();
         }
 
         // GET: Subir_Tarea/Create
@@ -33,12 +41,13 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaEspañol([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = ' ';
+                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 1;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -53,12 +62,13 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaMatematica([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = ' ';
+                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 2;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -73,12 +83,13 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaNaturales([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = ' ';
+                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 3;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -93,12 +104,13 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaSociales([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = ' ';
+                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 4;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -113,12 +125,13 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaReligion([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = ' ';
+                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 5;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -133,12 +146,13 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaDeporte([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = ' ';
+                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 6;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -153,12 +167,13 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaArte([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = ' ';
+                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 7;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -173,12 +188,13 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaOptativa([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = ' ';
+                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 8;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
