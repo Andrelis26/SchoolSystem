@@ -165,6 +165,7 @@
     <Content Include="images\slideShadow.png" />
     <Content Include="Image\1200px-Coat_of_arms_of_the_Dominican_Republic.svg.png" />
     <Content Include="Image\EduSoft.png" />
+    <Content Include="Image\edvin-johansson-UGGinojhaC0-unsplash.jpg" />
     <Content Include="Image\EG8m2NCWwA8rfow.jpg" />
     <Content Include="Image\element5-digital-OyCl7Y4y0Bk-unsplash.jpg" />
     <Content Include="Image\facebook.png" />
@@ -228,6 +229,7 @@
     <Content Include="Views\Calificaciones\Details.cshtml" />
     <Content Include="Views\Calificaciones\Edit.cshtml" />
     <Content Include="Views\Calificaciones\Index.cshtml" />
+    <Content Include="Views\Home\Transparecia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

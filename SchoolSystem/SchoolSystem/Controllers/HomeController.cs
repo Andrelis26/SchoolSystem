@@ -16,6 +16,10 @@ namespace SchoolSystem.Controllers
         {
             return View();
         }
+        public ActionResult Transparecia()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -29,11 +33,11 @@ namespace SchoolSystem.Controllers
 
             return View();
         }
-        
+
         public ActionResult Materias()
         {
             return View();
         }
-       
+
     }
 }
