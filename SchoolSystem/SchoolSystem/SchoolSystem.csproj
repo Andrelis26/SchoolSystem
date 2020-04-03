@@ -133,7 +133,6 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MateriasController.cs" />
     <Compile Include="Controllers\RegistroesController.cs" />
-    <Compile Include="Controllers\Subir_Tarea1Controller.cs" />
     <Compile Include="Controllers\Subir_TareaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -252,22 +251,10 @@
     <Content Include="Views\Registroes\Index.cshtml" />
     <Content Include="Views\Materias\Calificacion.cshtml" />
     <Content Include="Views\Subir_Tarea\Index.cshtml" />
-    <Content Include="Views\Subir_Tarea1\Create.cshtml" />
-    <Content Include="Views\Subir_Tarea1\Delete.cshtml" />
-    <Content Include="Views\Subir_Tarea1\Details.cshtml" />
-    <Content Include="Views\Subir_Tarea1\Edit.cshtml" />
-    <Content Include="Views\Subir_Tarea1\Index.cshtml" />
-    <Content Include="Views\Subir_Tarea1\TareaEspañol.cshtml" />
-    <Content Include="Views\Subir_Tarea1\TareaMatematica.cshtml" />
-    <Content Include="Views\Subir_Tarea1\TareaNaturales.cshtml" />
-    <Content Include="Views\Subir_Tarea1\TareaSociales.cshtml" />
-    <Content Include="Views\Subir_Tarea1\TareaReligion.cshtml" />
-    <Content Include="Views\Subir_Tarea1\TareaDeporte.cshtml" />
-    <Content Include="Views\Subir_Tarea1\TareaArte.cshtml" />
-    <Content Include="Views\Subir_Tarea1\TareaOptativa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Archivos\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

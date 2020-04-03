@@ -31,6 +31,7 @@ namespace SchoolSystem.Controllers
                     FormsAuthentication.SetAuthCookie(user.Usuario, true);
                     Session["Usuario"] = user.Usuario;
                     Session["ID"] = user.ID_Registro;
+                    Session["Estudiante"] = user.Estudiante;
                     Session["ID_Estudiante"] = user.ID_Estudiante;
                     return RedirectToAction("InternalHome", "Home");
                     

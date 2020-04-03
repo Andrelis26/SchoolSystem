@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -17,6 +18,7 @@ namespace SchoolSystem.Controllers
         // GET: Subir_Tarea
         public ActionResult Index()
         {
+            var items = GetFiles();
             var subir_Tarea = db.Subir_Tarea.Include(s => s.Materias).Include(s => s.Registro);
             return View(subir_Tarea.ToList());
         }
@@ -29,10 +31,10 @@ namespace SchoolSystem.Controllers
         }
 
         // GET: Subir_Tarea/Create
-        public ActionResult CreateTarea()
-        {
-            return View();
-        }
+        //public ActionResult CreateTarea()
+        //{
+        //    return View();
+        //}
 
         // POST: Subir_Tarea/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
@@ -41,6 +43,9 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaEspañol([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            string path = Path.Combine(Server.MapPath("~/Archivos"),
+                                               Path.GetFileName(tarea.FileName));
+
             var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
@@ -51,10 +56,10 @@ namespace SchoolSystem.Controllers
                 subir_Tarea.ID_Materia = 1;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
+                tarea.SaveAs(path);
                 TempData["SuccessMessage"] = "Su tarea ha sido enviada";
                 return View("~/Views/Asignar_Tarea/Index.cshtml");
             }
-
             return View(subir_Tarea);
         }
 
@@ -62,6 +67,8 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaMatematica([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            string path = Path.Combine(Server.MapPath("~/Archivos"),
+                                   Path.GetFileName(tarea.FileName));
             var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
@@ -72,10 +79,10 @@ namespace SchoolSystem.Controllers
                 subir_Tarea.ID_Materia = 2;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
+                tarea.SaveAs(path);
                 TempData["SuccessMessage"] = "Su tarea ha sido enviada";
                 return View("~/Views/Asignar_Tarea/Index.cshtml");
             }
-
             return View(subir_Tarea);
         }
 
@@ -83,6 +90,8 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaNaturales([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            string path = Path.Combine(Server.MapPath("~/Archivos"),
+                                   Path.GetFileName(tarea.FileName));
             var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
@@ -93,10 +102,10 @@ namespace SchoolSystem.Controllers
                 subir_Tarea.ID_Materia = 3;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
+                tarea.SaveAs(path);
                 TempData["SuccessMessage"] = "Su tarea ha sido enviada";
                 return View("~/Views/Asignar_Tarea/Index.cshtml");
             }
-
             return View(subir_Tarea);
         }
 
@@ -104,6 +113,8 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaSociales([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            string path = Path.Combine(Server.MapPath("~/Archivos"),
+                                   Path.GetFileName(tarea.FileName));
             var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
@@ -114,10 +125,10 @@ namespace SchoolSystem.Controllers
                 subir_Tarea.ID_Materia = 4;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
+                tarea.SaveAs(path);
                 TempData["SuccessMessage"] = "Su tarea ha sido enviada";
                 return View("~/Views/Asignar_Tarea/Index.cshtml");
             }
-
             return View(subir_Tarea);
         }
 
@@ -125,6 +136,8 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaReligion([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            string path = Path.Combine(Server.MapPath("~/Archivos"),
+                       Path.GetFileName(tarea.FileName));
             var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
@@ -135,10 +148,10 @@ namespace SchoolSystem.Controllers
                 subir_Tarea.ID_Materia = 5;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
+                tarea.SaveAs(path);
                 TempData["SuccessMessage"] = "Su tarea ha sido enviada";
                 return View("~/Views/Asignar_Tarea/Index.cshtml");
             }
-
             return View(subir_Tarea);
         }
 
@@ -146,6 +159,8 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaDeporte([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            string path = Path.Combine(Server.MapPath("~/Archivos"),
+                                   Path.GetFileName(tarea.FileName));
             var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
@@ -156,10 +171,10 @@ namespace SchoolSystem.Controllers
                 subir_Tarea.ID_Materia = 6;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
+                tarea.SaveAs(path);
                 TempData["SuccessMessage"] = "Su tarea ha sido enviada";
                 return View("~/Views/Asignar_Tarea/Index.cshtml");
             }
-
             return View(subir_Tarea);
         }
 
@@ -167,6 +182,8 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaArte([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            string path = Path.Combine(Server.MapPath("~/Archivos"),
+                                   Path.GetFileName(tarea.FileName));
             var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
@@ -177,10 +194,10 @@ namespace SchoolSystem.Controllers
                 subir_Tarea.ID_Materia = 7;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
+                tarea.SaveAs(path);
                 TempData["SuccessMessage"] = "Su tarea ha sido enviada";
                 return View("~/Views/Asignar_Tarea/Index.cshtml");
             }
-
             return View(subir_Tarea);
         }
 
@@ -188,6 +205,8 @@ namespace SchoolSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult TareaOptativa([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
         {
+            string path = Path.Combine(Server.MapPath("~/Archivos"),
+                                   Path.GetFileName(tarea.FileName));
             var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
@@ -198,12 +217,48 @@ namespace SchoolSystem.Controllers
                 subir_Tarea.ID_Materia = 8;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
+                tarea.SaveAs(path);
                 TempData["SuccessMessage"] = "Su tarea ha sido enviada";
                 return View("~/Views/Asignar_Tarea/Index.cshtml");
             }
-
             return View(subir_Tarea);
         }
+
+        //Metodo 1
+        public FileResult Download(string ImageName)
+        {
+            var FileVirtualPath = "~/Archivos" + ImageName;
+            return File(FileVirtualPath, "application/force- download", Path.GetFileName(FileVirtualPath));
+        }
+
+        private List<string> GetFiles()
+        {
+            var dir = new System.IO.DirectoryInfo(Server.MapPath("~/Archivos"));
+            System.IO.FileInfo[] fileNames = dir.GetFiles("*.*");
+
+            List<string> items = new List<string>();
+            foreach (var file in fileNames)
+            {
+                items.Add(file.Name);
+            }
+
+            return items;
+        }
+
+        //Metodo 2
+        //public FileContentResult FileContentResult(int id)
+        //{
+            //byte[] Data;
+            //string name;
+
+            //Entidad entidad = db.Subir_Tarea(id);
+            //Data = (byte[])entidad.Tarea.ToArray();
+            //name = entidad.FileName;
+
+            //return File(Data, "Text", name);
+
+        //}
+
 
         protected override void Dispose(bool disposing)
         {
@@ -213,5 +268,6 @@ namespace SchoolSystem.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
