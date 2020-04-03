@@ -1,7 +1,39 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Mapa del sitio";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<link href="~/Content/HomeDesign.css" rel="stylesheet" />
+<div class="row">
+    <div class="col-md-12">
+        <div class="font" style="margin-left: 15%; margin-right:15%; margin-top:4%; margin-bottom: 4%">
 
-<p>Use this area to provide additional information.</p>
+            <h3 class="text-center">Mapa del sitio</h3>
+            <div class="Margin-img">
+                <strong>Menú Principal</strong>
+                <ul>
+                    <li style="margin-left:15px;">*<a href="@Url.Action("Index","Home")">Inicio</a></li>
+                    <li style="margin-left:15px;">*<a href="@Url.Action("About","Home")">Mapa de sitio</a></li>
+                    <li style="margin-left:15px;">*<a href="@Url.Action("Contact","Home")">Contacto</a></li>
+
+                    <li class="divider alert-success"></li>
+                    <li style="margin-left:15px;">* @Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li style="margin-left:15px;">* @Html.ActionLink("Sobre Nostros", "Contact", "Home")</li>
+
+                    <li class="divider"></li>
+                    <li><strong>Admisiones</strong></li>
+
+                    <li style="margin-left:15px;">* @Html.ActionLink("Requisitos admisión", "InfoAdmi", "Home")</li>
+                    <li style="margin-left:15px;">*@Html.ActionLink("Solicitud admisión", "About", "Home")</li>
+
+                    <li class="divider"></li>
+                    <li><strong>Servicios</strong></li>
+                    <li style="margin-left:15px;">*@Html.ActionLink("Solicitar Record de Notas", "Index", "Service")</li>
+
+                    <li class="divider"></li>
+                    <li>@Html.ActionLink("Transparencia", "Transparecia", "Home")</li>
+                </ul>
+                <br />
+            </div>
+
+        </div>
+    </div>
+</div>

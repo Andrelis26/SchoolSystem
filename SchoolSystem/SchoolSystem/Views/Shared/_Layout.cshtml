@@ -34,7 +34,7 @@
                 <!--[COLOCAR EN ESTA PARTE EL MENU DE NAVEGACION FACIL]-->
                 <ul class="menu">
                     <li><a href="@Url.Action("Index","Home")">Inicio</a></li>
-                    <li><a href="#">Mapa de sitio</a></li>
+                    <li><a href="@Url.Action("About","Home")">Mapa de sitio</a></li>
                     <li><a href="@Url.Action("Contact","Home")">Contacto</a></li>
                 </ul><!--end menu-->
             </div><!--end navMenu-->
@@ -75,8 +75,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("Solicitar Record de Notas", "Index", "Service")</li>
-                                @*<li><a href="#">Page 1-2</a></li>
-                                <li><a href="#">Page 1-3</a></li>*@
+                              
                             </ul>
                         </li>
                         <li>@Html.ActionLink("Transparencia", "Transparecia", "Home")</li>

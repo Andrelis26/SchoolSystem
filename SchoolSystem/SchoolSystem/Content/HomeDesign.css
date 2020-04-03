@@ -25,6 +25,12 @@ li{
     list-style:none;
     margin-bottom: 1%;
 }
+.font{
+    font-size: 15px;
+    background-color: #b9b6b8;
+    font-stretch: normal;
+    color: #000;
+}
 .Margin-img{
     margin-left: 9%;
     margin-right: 5%;
