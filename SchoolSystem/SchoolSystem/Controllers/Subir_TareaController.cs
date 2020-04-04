@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model;
@@ -184,13 +182,12 @@ namespace SchoolSystem.Controllers
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                                    Path.GetFileName(tarea.FileName));
-            var usuario = Session["ID"].ToString();
+
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 7;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();

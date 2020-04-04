@@ -15,9 +15,9 @@ namespace Model
     public partial class Subir_Tarea
     {
         public int ID_Tarea { get; set; }
-        public Nullable<int> ID_Registro { get; set; }
         public byte[] Tarea { get; set; }
         public Nullable<int> ID_Materia { get; set; }
+        public Nullable<int> ID_Registro { get; set; }
     
         public virtual Materias Materias { get; set; }
         public virtual Registro Registro { get; set; }

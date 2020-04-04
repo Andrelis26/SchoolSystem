@@ -20,7 +20,6 @@ namespace Model
         public string Apellidos { get; set; }
         public string Parentesco { get; set; }
         public long Cedula { get; set; }
-        public string Direccion { get; set; }
         public string Profesion { get; set; }
         public Nullable<long> Telefono { get; set; }
         public Nullable<long> Celular { get; set; }

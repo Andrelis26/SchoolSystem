@@ -33,10 +33,9 @@ namespace Model
         public string Nacionalidad { get; set; }
         public string Sexo { get; set; }
         public int ID_Grado { get; set; }
-        public string CentroEducativo { get; set; }
-        public string Nivel { get; set; }
-        public string GradoSolicita { get; set; }
         public string DistritoEducativo { get; set; }
+        public string CentroEducativo { get; set; }
+        public string GradoSolicita { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Direccion> Direccion { get; set; }
