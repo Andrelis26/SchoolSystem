@@ -228,7 +228,6 @@
     <Content Include="Views\Admisiones\FormDireccion.cshtml" />
     <Content Include="Views\Admisiones\FormPadres.cshtml" />
     <Content Include="Views\Admisiones\FormDocumentos.cshtml" />
-    <Content Include="Views\Profe\Index.cshtml" />
     <Content Include="Views\Grados\Create.cshtml" />
     <Content Include="Views\Grados\Delete.cshtml" />
     <Content Include="Views\Grados\Details.cshtml" />
