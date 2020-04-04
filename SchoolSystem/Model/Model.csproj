@@ -55,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asignar_Tarea.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Calificaciones.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -96,6 +99,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Subir_Tarea.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
   </ItemGroup>

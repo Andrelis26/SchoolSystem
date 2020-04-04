@@ -14,9 +14,20 @@ namespace Model
     
     public partial class Registro
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Registro()
+        {
+            this.Subir_Tarea = new HashSet<Subir_Tarea>();
+        }
+    
         public int ID_Registro { get; set; }
         public string Rol { get; set; }
         public string Usuario { get; set; }
         public byte[] Contraseña { get; set; }
+        public Nullable<int> ID_Estudiante { get; set; }
+    
+        public virtual Estudiante Estudiante { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subir_Tarea> Subir_Tarea { get; set; }
     }
 }

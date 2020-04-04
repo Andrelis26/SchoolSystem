@@ -34,5 +34,7 @@ namespace Model
         public virtual DbSet<Profesor> Profesor { get; set; }
         public virtual DbSet<Calificaciones> Calificaciones { get; set; }
         public virtual DbSet<Registro> Registro { get; set; }
+        public virtual DbSet<Asignar_Tarea> Asignar_Tarea { get; set; }
+        public virtual DbSet<Subir_Tarea> Subir_Tarea { get; set; }
     }
 }

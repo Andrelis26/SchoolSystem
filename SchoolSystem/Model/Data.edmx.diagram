@@ -23,6 +23,12 @@
         <AssociationConnector Association="SistemaEscolarModel.FK_Calificaciones_Profesor" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Registro" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SistemaEscolarModel.Asignar_Tarea" Width="1.5" PointX="5.25" PointY="15.375" />
+        <EntityTypeShape EntityType="SistemaEscolarModel.Subir_Tarea" Width="1.5" PointX="8.25" PointY="8" />
+        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Materia_AsignarTarea" />
+        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Registro" />
+        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Materia_Tarea" />
+        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Registro_Tarea" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
