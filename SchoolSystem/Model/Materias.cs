@@ -25,9 +25,9 @@ namespace Model
         public string Descripcion { get; set; }
         public int ID_Grado { get; set; }
     
-        public virtual Grado Grado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asignar_Tarea> Asignar_Tarea { get; set; }
+        public virtual Grado Grado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subir_Tarea> Subir_Tarea { get; set; }
     }

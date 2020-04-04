@@ -20,6 +20,7 @@ namespace Model
             this.Direccion = new HashSet<Direccion>();
             this.Documentos_Estudiantes = new HashSet<Documentos_Estudiantes>();
             this.Padre_Tutor = new HashSet<Padre_Tutor>();
+            this.Registro = new HashSet<Registro>();
         }
     
         public int ID_Estudiante { get; set; }
@@ -33,6 +34,7 @@ namespace Model
         public string Sexo { get; set; }
         public int ID_Grado { get; set; }
         public string CentroEducativo { get; set; }
+        public string Nivel { get; set; }
         public string GradoSolicita { get; set; }
         public string DistritoEducativo { get; set; }
     
@@ -42,7 +44,6 @@ namespace Model
         public virtual ICollection<Documentos_Estudiantes> Documentos_Estudiantes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Padre_Tutor> Padre_Tutor { get; set; }
-        public virtual Grado Grado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Registro> Registro { get; set; }
         public virtual Grado Grado { get; set; }

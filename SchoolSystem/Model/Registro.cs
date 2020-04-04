@@ -22,7 +22,9 @@ namespace Model
     
         public int ID_Registro { get; set; }
         public int ID_Rol { get; set; }
+        public Nullable<int> ID_Estudiante { get; set; }
         public string Usuario { get; set; }
+        public string Contraseña { get; set; }
         public string Rol { get; set; }
         public Nullable<int> ID_Estudiante { get; set; }
         public string Contraseña { get; set; }

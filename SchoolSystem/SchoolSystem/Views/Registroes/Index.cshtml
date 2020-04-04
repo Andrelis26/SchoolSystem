@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Model.Registro>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InternalHome.cshtml";
+}
+    <div class="text-info">
+        @Html.ActionLink("Asignar Usuario", "Create", null, new { @class = "btn btn-danger btn-large" })
+    </div>
+<br />
+<br />
+<h2>Lista de Usuarios</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rol)
+        </th>
+        <th>
+            @Html.DisplayName("Primer Nombre")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contraseña)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estudiante.Primer_Nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", null, new { id = item.ID_Registro}, new { id = item.ID_Registro, @class = "btn btn-primary btn-large" }) |
+                @Html.ActionLink("Detalles", "Details", null,  new { id = item.ID_Registro}, new { @class = "btn btn-success btn-large" }) |
+
+            </td>
+        </tr>
+    }
+
+</table>
