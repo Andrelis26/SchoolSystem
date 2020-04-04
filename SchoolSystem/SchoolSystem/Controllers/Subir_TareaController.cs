@@ -44,13 +44,11 @@ namespace SchoolSystem.Controllers
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                                                Path.GetFileName(tarea.FileName));
 
-            var usuario = Session["ID"].ToString();
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 1;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -67,13 +65,12 @@ namespace SchoolSystem.Controllers
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                                    Path.GetFileName(tarea.FileName));
-            var usuario = Session["ID"].ToString();
+
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 2;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -90,13 +87,12 @@ namespace SchoolSystem.Controllers
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                                    Path.GetFileName(tarea.FileName));
-            var usuario = Session["ID"].ToString();
+
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 3;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -113,13 +109,12 @@ namespace SchoolSystem.Controllers
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                                    Path.GetFileName(tarea.FileName));
-            var usuario = Session["ID"].ToString();
+
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 4;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -136,13 +131,12 @@ namespace SchoolSystem.Controllers
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                        Path.GetFileName(tarea.FileName));
-            var usuario = Session["ID"].ToString();
+
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 5;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -159,13 +153,12 @@ namespace SchoolSystem.Controllers
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                                    Path.GetFileName(tarea.FileName));
-            var usuario = Session["ID"].ToString();
+
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 6;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -204,13 +197,12 @@ namespace SchoolSystem.Controllers
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                                    Path.GetFileName(tarea.FileName));
-            var usuario = Session["ID"].ToString();
+
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
-                subir_Tarea.ID_Registro = Convert.ToInt32(usuario);
                 subir_Tarea.ID_Materia = 8;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -221,7 +213,7 @@ namespace SchoolSystem.Controllers
             return View(subir_Tarea);
         }
 
-        //Metodo 1
+        //Metodo 1 para presentar documentos
         public FileResult Download(string ImageName)
         {
             var FileVirtualPath = "~/Archivos" + ImageName;
