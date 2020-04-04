@@ -105,9 +105,9 @@
           </Key>
           <Property Name="ID_Registro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Usuario" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Contraseña" Type="varbinary(max)" Nullable="false" />
           <Property Name="Rol" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ID_Estudiante" Type="int" />
+          <Property Name="Contraseña" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Subir_Tarea">
           <Key>
@@ -524,11 +524,11 @@
           </Key>
           <Property Name="ID_Registro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Usuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Contraseña" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="Rol" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ID_Estudiante" Type="Int32" />
           <NavigationProperty Name="Estudiante" Relationship="SistemaEscolarModel.FK_ID_Estudiante_Registro" FromRole="Registro" ToRole="Estudiante" />
           <NavigationProperty Name="Subir_Tarea" Relationship="SistemaEscolarModel.FK_ID_Registro_Tarea" FromRole="Registro" ToRole="Subir_Tarea" />
+          <Property Name="Contraseña" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Asignar_Tarea">
           <Key>
@@ -700,9 +700,9 @@
           <EntitySetMapping Name="Registro">
             <EntityTypeMapping TypeName="SistemaEscolarModel.Registro">
               <MappingFragment StoreEntitySet="Registro">
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
                 <ScalarProperty Name="ID_Estudiante" ColumnName="ID_Estudiante" />
                 <ScalarProperty Name="Rol" ColumnName="Rol" />
-                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
                 <ScalarProperty Name="ID_Registro" ColumnName="ID_Registro" />
               </MappingFragment>
