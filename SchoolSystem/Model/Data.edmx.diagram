@@ -25,6 +25,9 @@
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Registro" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Materia_Tarea" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Registro_Tarea" />
+        <EntityTypeShape EntityType="SistemaEscolarModel.Registro" Width="1.5" PointX="9.625" PointY="0.875" />
+        <EntityTypeShape EntityType="SistemaEscolarModel.Rol" Width="1.5" PointX="7.375" PointY="1.125" />
+        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Registro" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

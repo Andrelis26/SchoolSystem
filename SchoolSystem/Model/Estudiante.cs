@@ -20,7 +20,6 @@ namespace Model
             this.Direccion = new HashSet<Direccion>();
             this.Documentos_Estudiantes = new HashSet<Documentos_Estudiantes>();
             this.Padre_Tutor = new HashSet<Padre_Tutor>();
-            this.Registro = new HashSet<Registro>();
         }
     
         public int ID_Estudiante { get; set; }
@@ -46,5 +45,6 @@ namespace Model
         public virtual Grado Grado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Registro> Registro { get; set; }
+        public virtual Grado Grado { get; set; }
     }
 }

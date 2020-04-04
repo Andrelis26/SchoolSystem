@@ -14,6 +14,7 @@
           <Property Name="Titulo" Type="varchar" MaxLength="300" />
           <Property Name="Contenido" Type="varchar(max)" />
         </EntityType>
+    <Schema Namespace="SistemaEscolarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Direccion">
           <Key>
             <PropertyRef Name="ID_Direccion" />
@@ -104,6 +105,7 @@
             <PropertyRef Name="ID_Registro" />
           </Key>
           <Property Name="ID_Registro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Rol" Type="int" Nullable="false" />
           <Property Name="Usuario" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Rol" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ID_Estudiante" Type="int" />
@@ -117,6 +119,14 @@
           <Property Name="Tarea" Type="varbinary(max)" />
           <Property Name="ID_Materia" Type="int" />
           <Property Name="ID_Registro" Type="int" />
+          <Property Name="Contraseña" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="ID_Rol" />
+          </Key>
+          <Property Name="ID_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_ID_Estudiante_Direc">
           <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
@@ -156,13 +166,14 @@
         </Association>
         <Association Name="FK_ID_Estudiante_Registro">
           <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="0..1" />
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
           <End Role="Registro" Type="Self.Registro" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Estudiante">
-              <PropertyRef Name="ID_Estudiante" />
+            <Principal Role="Rol">
+              <PropertyRef Name="ID_Rol" />
             </Principal>
             <Dependent Role="Registro">
-              <PropertyRef Name="ID_Estudiante" />
+              <PropertyRef Name="ID_Rol" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -249,6 +260,7 @@
           <EntitySet Name="Profesor" EntityType="Self.Profesor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Registro" EntityType="Self.Registro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subir_Tarea" EntityType="Self.Subir_Tarea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ID_Estudiante_Direc" Association="Self.FK_ID_Estudiante_Direc">
             <End Role="Estudiante" EntitySet="Estudiante" />
             <End Role="Direccion" EntitySet="Direccion" />
@@ -262,7 +274,7 @@
             <End Role="Padre_Tutor" EntitySet="Padre_Tutor" />
           </AssociationSet>
           <AssociationSet Name="FK_ID_Estudiante_Registro" Association="Self.FK_ID_Estudiante_Registro">
-            <End Role="Estudiante" EntitySet="Estudiante" />
+            <End Role="Rol" EntitySet="Rol" />
             <End Role="Registro" EntitySet="Registro" />
           </AssociationSet>
           <AssociationSet Name="FK_ID_Grado_Estudiante" Association="Self.FK_ID_Grado_Estudiante">
@@ -430,6 +442,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ID_Grado_Estudiante">
           <End Role="Grado" Type="Self.Grado" Multiplicity="1" />
           <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="*" />
@@ -517,6 +532,12 @@
             <End Role="Registro" EntitySet="Registro" />
             <End Role="Subir_Tarea" EntitySet="Subir_Tarea" />
           </AssociationSet>
+          <EntitySet Name="Registro" EntityType="SistemaEscolarModel.Registro" />
+          <EntitySet Name="Rol" EntityType="SistemaEscolarModel.Rol" />
+          <AssociationSet Name="FK_ID_Estudiante_Registro" Association="SistemaEscolarModel.FK_ID_Estudiante_Registro">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Registro" EntitySet="Registro" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Registro">
           <Key>
@@ -596,6 +617,36 @@
             </Principal>
             <Dependent Role="Subir_Tarea">
               <PropertyRef Name="ID_Registro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Registro">
+          <Key>
+            <PropertyRef Name="ID_Registro" />
+          </Key>
+          <Property Name="ID_Registro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Rol" Type="Int32" Nullable="false" />
+          <Property Name="Usuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contraseña" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rol" Relationship="SistemaEscolarModel.FK_ID_Estudiante_Registro" FromRole="Registro" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="ID_Rol" />
+          </Key>
+          <Property Name="ID_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Registro" Relationship="SistemaEscolarModel.FK_ID_Estudiante_Registro" FromRole="Rol" ToRole="Registro" />
+        </EntityType>
+        <Association Name="FK_ID_Estudiante_Registro">
+          <End Type="SistemaEscolarModel.Rol" Role="Rol" Multiplicity="1" />
+          <End Type="SistemaEscolarModel.Registro" Role="Registro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="ID_Rol" />
+            </Principal>
+            <Dependent Role="Registro">
+              <PropertyRef Name="ID_Rol" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -701,6 +752,10 @@
             <EntityTypeMapping TypeName="SistemaEscolarModel.Registro">
               <MappingFragment StoreEntitySet="Registro">
                 <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="ID_Rol" ColumnName="ID_Rol" />
+                <ScalarProperty Name="ID_Registro" ColumnName="ID_Registro" />
                 <ScalarProperty Name="ID_Estudiante" ColumnName="ID_Estudiante" />
                 <ScalarProperty Name="Rol" ColumnName="Rol" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
@@ -725,6 +780,14 @@
                 <ScalarProperty Name="ID_Materia" ColumnName="ID_Materia" />
                 <ScalarProperty Name="Tarea" ColumnName="Tarea" />
                 <ScalarProperty Name="ID_Tarea" ColumnName="ID_Tarea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="SistemaEscolarModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="ID_Rol" ColumnName="ID_Rol" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

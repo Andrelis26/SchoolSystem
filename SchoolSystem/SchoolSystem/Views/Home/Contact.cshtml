@@ -1,17 +1,47 @@
 ﻿@{
     ViewBag.Title = "Contact";
+    Layout = null;
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
+<link href="~/css/Login.css">
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <img src="~/Image/Picture-Login.png" width="600" height="600" />
+        </div>
+
+        <div class="sidenav col-md-6">
+            <div class="login-main-text">
+                <br />
+                <br />
+                <img src="~/Image/Rectangle 50.png" width="320" height="100" />
+            </div>
+
+            <div class="col-md-6">
+                <div class="text-center">
+                    <p class="text-primary"><p>Educación a tu alcance</p>
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <div class="login-form col-md-6">
+                <form>
+                    <br />
+                    <div class="form-group">
+                        <input type="text" class="form-control text-primary" placeholder="Usuario">
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input type="password" class="form-control text-primary" placeholder="Contraseña">
+                    </div>
+                    <br />
+                    <button type="submit" class="form-control btn-primary">Acceder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
