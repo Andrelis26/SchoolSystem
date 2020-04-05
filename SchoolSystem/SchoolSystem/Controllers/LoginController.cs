@@ -33,6 +33,7 @@ namespace SchoolSystem.Controllers
                     Session["ID"] = user.ID_Registro;
                     Session["Estudiante"] = user.Estudiante;
                     Session["ID_Estudiante"] = user.ID_Estudiante;
+                    Session["Rol"] = user.Rol;
                     return RedirectToAction("InternalHome", "Home");
                     
                 }

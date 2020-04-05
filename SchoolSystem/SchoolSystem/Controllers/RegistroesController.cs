@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Model;
+using SchoolSystem.Authorize;
 
 namespace SchoolSystem.Controllers
 {
+    [CustomAuthorizeAttribute(Perfil = "Administrador")]
     public class RegistroesController : Controller
     {
         private SistemaEscolarEntities db = new SistemaEscolarEntities();

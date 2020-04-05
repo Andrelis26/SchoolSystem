@@ -38,13 +38,20 @@
                 <a href="#" class="list-group-item color-menu">
                     <span class="glyphicon glyphicon-menu-hamburger"></span>   Menú
                 </a>
+
                 <a href="~/Home/InternalHome" class="list-group-item height">  <span class="glyphicon glyphicon-home"></span> Inicio</a>
-                <a href="~/Home/Materias" class="list-group-item height"> <span class="glyphicon glyphicon-book"></span> Materias</a>
-                <a href="#" class="list-group-item height"><span class="glyphicon glyphicon-list-alt"></span> Asignaciones</a>
-                <a href="#" class="list-group-item height"><span class="glyphicon glyphicon-ok"></span> Calificaciones</a>
-                <a class="list-group-item height"><span class="glyphicon glyphicon-user"></span> Administración</a>
-                <a href="~/Registroes/Create" class="list-group-item height"> Crear Cuenta</a>
-                <a href="~/Registroes/Index" class="list-group-item height"> Cuentas de Usuario </a>
+                @if (Session["Rol"].ToString() == "Profesor" || Session["Rol"].ToString() == "Estudiante") 
+                {
+                    <a href="~/Home/Materias" class="list-group-item height"> <span class="glyphicon glyphicon-book"></span> Materias</a>
+                    <a href="#" class="list-group-item height"><span class="glyphicon glyphicon-list-alt"></span> Asignaciones</a>
+                    <a href="#" class="list-group-item height"><span class="glyphicon glyphicon-ok"></span> Calificaciones</a>
+                }
+                @if (Session["Rol"].ToString() == "Administrador")
+                {
+                    <a class="list-group-item height"><span class="glyphicon glyphicon-user"></span> Administración</a>
+                    <a href="~/Registroes/Create" class="list-group-item height">-- Crear Cuenta</a>
+                    <a href="~/Registroes/Index" class="list-group-item height">-- Cuentas de Usuario </a>
+                }
             </div>
         </div>
         <div class="container body-content col-md-9">
