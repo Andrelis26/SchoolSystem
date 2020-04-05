@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <title>InternalHome</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar nav-custom navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Logo</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> @Session["Usuario"]</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a href="/Login/Logout"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 8%">
+        <div class="col-md-3">
+            <div class="list-group" style="position:fixed; width:22%">
+                <a href="/Home/InternalHome" class="list-group-item height">  <span class="glyphicon glyphicon-home"></span> Inicio</a>
+                <a href="/Materias/Index" class="list-group-item height"> <span class="glyphicon glyphicon-book"></span> Materias</a>
+                <a href="/Asignar_Tarea/Index" class="list-group-item height"><span class="glyphicon glyphicon-list-alt"></span> Asignaciones</a>
+                <a href="/Subir_Tarea/Index" class="list-group-item height"><span class="glyphicon glyphicon-list-alt"></span> Entrega Asignaciones</a>
+                <a href="/Materias/Calificacion" class="list-group-item height"><span class="glyphicon glyphicon-ok"></span> Calificaciones</a>
+                <a href="/Registroes/Index" class="list-group-item height"><span class="glyphicon glyphicon-ok"></span> Registro(Adm)</a>
+            </div>
+        </div>
+        <div class="container body-content col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</body>
+</html>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>

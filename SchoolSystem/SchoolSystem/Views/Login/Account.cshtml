@@ -1,0 +1,90 @@
+﻿@model Model.Registro
+
+@{
+    ViewBag.Title = "Account";
+    Layout = null;
+}
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" />
+<link href="~/Content/Login.css">
+
+@{
+    if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <div class="alert alert-danger">@ViewBag.Message</div>
+    }
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row col-md-6">
+            <img src="~/Image/Picture-Login.png" width="600" height="600" />
+        </div>
+
+        <div class="sidenav col-md-6">
+            <div class="login-main-text col-md-8">
+                <br />
+                <br />
+                <img src="~/Image/Rectangle 50.png" width="350" height="90" />
+            </div>
+
+            <div class="col-md-8">
+                <div class="text-center">
+                    <p class="text-primary">Educación a tu alcance</p>
+                    <br />
+                    <br />
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <div class="form-horizontal">
+
+
+                @using (Html.BeginForm("Account", "Login"))
+                {
+
+                    @*------Diseno Patron-------*@
+
+                    <div class="login-form col-md-8">
+                        <form>
+                            <br />
+                            <br />
+                            @*<div class="form-group">
+                                    @Html.DropDownList("ID_Rol", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ID_Rol, "", new { @class = "text-danger", placeholder = "ID" })
+                                </div>*@
+
+                            <br />
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Usuario, new { htmlAttributes = new { @class = "form-control text-primary", placeholder = "Usuario" } })
+                                @Html.ValidationMessageFor(model => model.Usuario, "", new { @class = "text-danger" })
+                            </div>
+                            <br />
+
+                            <div class="form-group">
+                                @Html.EditorFor(model => model.Contraseña, new { htmlAttributes = new { @class = "form-control text-primary", placeholder = "Contraseña" } })
+                                @Html.ValidationMessageFor(model => model.Contraseña, "", new { @class = "text-danger" })
+                            </div>
+                            <br />
+                            <br />
+
+                            <input type="submit" value="Acceder" class="btn form-control btn-primary" />
+
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "defaultProvider": "jsdelivr",
+  "libraries": [
+    {
+      "library": "bootstrap-jquery-slim@4.1.1-1",
+      "destination": "Content/bootstrap-jquery-slim/"
+    }
+  ]
+}

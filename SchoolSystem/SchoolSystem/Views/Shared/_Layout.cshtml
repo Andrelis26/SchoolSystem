@@ -62,8 +62,8 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li> @Html.ActionLink("Requisitos admisión", "InfoAdmi", "Home")</li>
-                                <li> @Html.ActionLink("Solicitud admisión", "About", "Home")</li>
+                                <li> @Html.ActionLink("Requisitos admisión", "InfoAdmi", "Admisiones")</li>
+                                <li> @Html.ActionLink("Solicitud admisión", "Create", "Admisiones")</li>
                             </ul>
                         </li>
 
@@ -81,7 +81,8 @@
                         <li>@Html.ActionLink("Transparencia", "Transparecia", "Home")</li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesión</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span></a></li>
+                        <li>@Html.ActionLink("Iniciar Sesión", "Account", "Login")</li>
                     </ul>
                 </div>
             </div>

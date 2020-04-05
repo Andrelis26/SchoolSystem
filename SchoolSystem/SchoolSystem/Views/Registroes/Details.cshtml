@@ -1,0 +1,51 @@
+﻿@model Model.Registro
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InternalHome.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Registro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contraseña)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contraseña)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rol)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Primer Nombre")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estudiante.Primer_Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID_Registro }, new { @class = "btn btn-success btn-large" }) |
+    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger btn-large" })
+</p>

@@ -164,6 +164,7 @@
     <Content Include="images\separator.gif" />
     <Content Include="images\slideShadow.png" />
     <Content Include="Image\1200px-Coat_of_arms_of_the_Dominican_Republic.svg.png" />
+    <Content Include="Image\3er_entretitulo_8_7_0.jpg" />
     <Content Include="Image\EduSoft.png" />
     <Content Include="Image\edvin-johansson-UGGinojhaC0-unsplash.jpg" />
     <Content Include="Image\EG8m2NCWwA8rfow.jpg" />
@@ -174,6 +175,8 @@
     <Content Include="Image\Logo_Ministerio_de_Educacin.png" />
     <Content Include="Image\minerd-e.jpg" />
     <Content Include="Image\mj_logo.jpg" />
+    <Content Include="Image\Picture-Login.png" />
+    <Content Include="Image\Rectangle 50.png" />
     <Content Include="Image\republica.png" />
     <Content Include="Image\school-logo.png" />
     <Content Include="Image\javier-trueba-iQPr1XkF5F0-unsplash.jpg" />
@@ -233,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Archivos\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

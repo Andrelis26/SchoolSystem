@@ -1,0 +1,65 @@
+﻿@model Model.Padre_Tutor
+
+
+<div class="Padre" style="float:right; width:400px; height:auto; margin-right:40px; border: solid 2px #22233E;
+            padding-top:25px; padding-bottom:25px; border-radius:25px; margin-bottom:25px">
+
+        <h4 style="text-align:center; color:#22233E; font-size:25px">Datos del Tutor</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombres, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombres, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.Nombres, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Apellidos, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Apellidos, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.Apellidos, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Parentesco, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Parentesco, new SelectList(new[] { "Padre", "Madre", "Tutor" }), "Seleccione", new { @class = "form-control", @style = "margin-left:60px" })
+                @Html.ValidationMessageFor(model => model.Parentesco, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cedula, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Profesion, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Profesion, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.Profesion, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "col-md-2", @style = "width:200px; margin-left:60px" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control", @style = "margin-left:60px" } })
+                @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger", @style = "margin-left:60px" })
+            </div>
+        </div>
+</div>

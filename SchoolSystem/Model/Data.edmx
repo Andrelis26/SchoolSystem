@@ -63,10 +63,9 @@
           <Property Name="Nacionalidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Sexo" Type="varchar" MaxLength="9" Nullable="false" />
           <Property Name="ID_Grado" Type="int" Nullable="false" />
-          <Property Name="CentroEducativo" Type="varchar" MaxLength="100" />
-          <Property Name="Nivel" Type="varchar" MaxLength="50" />
-          <Property Name="GradoSolicita" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DistritoEducativo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CentroEducativo" Type="varchar" MaxLength="100" />
+          <Property Name="GradoSolicita" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Grado">
           <Key>
@@ -93,7 +92,6 @@
           <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Parentesco" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Cedula" Type="bigint" Nullable="false" />
-          <Property Name="Direccion" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Profesion" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Telefono" Type="bigint" />
           <Property Name="Celular" Type="bigint" />
@@ -355,6 +353,16 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SistemaEscolarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Asignar_Tarea">
+          <Key>
+            <PropertyRef Name="ID_AsignarTarea" />
+          </Key>
+          <Property Name="ID_AsignarTarea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Materia" Type="Int32" Nullable="false" />
+          <Property Name="Titulo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Contenido" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Materias" Relationship="Self.FK_ID_Materia_AsignarTarea" FromRole="Asignar_Tarea" ToRole="Materias" />
+        </EntityType>
         <EntityType Name="Direccion">
           <Key>
             <PropertyRef Name="ID_Direccion" />
@@ -396,10 +404,9 @@
           <Property Name="Nacionalidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Sexo" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ID_Grado" Type="Int32" Nullable="false" />
-          <Property Name="CentroEducativo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Nivel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="GradoSolicita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DistritoEducativo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CentroEducativo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="GradoSolicita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Direccion" Relationship="Self.FK_ID_Estudiante_Direc" FromRole="Estudiante" ToRole="Direccion" />
           <NavigationProperty Name="Documentos_Estudiantes" Relationship="Self.FK_ID_Estudiante_Doc" FromRole="Estudiante" ToRole="Documentos_Estudiantes" />
           <NavigationProperty Name="Padre_Tutor" Relationship="Self.FK_ID_Estudiante_Padre" FromRole="Estudiante" ToRole="Padre_Tutor" />
@@ -424,6 +431,7 @@
           <Property Name="ID_Materia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ID_Grado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Asignar_Tarea" Relationship="Self.FK_ID_Materia_AsignarTarea" FromRole="Materias" ToRole="Asignar_Tarea" />
           <NavigationProperty Name="Grado" Relationship="Self.FK_ID_Grado_Materia" FromRole="Materias" ToRole="Grado" />
           <NavigationProperty Name="Calificaciones" Relationship="SistemaEscolarModel.FK_Calificaciones_Materias" FromRole="Materias" ToRole="Calificaciones" />
           <NavigationProperty Name="Asignar_Tarea" Relationship="SistemaEscolarModel.FK_ID_Materia_AsignarTarea" FromRole="Materias" ToRole="Asignar_Tarea" />
@@ -439,7 +447,6 @@
           <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Parentesco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Cedula" Type="Int64" Nullable="false" />
-          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Profesion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Telefono" Type="Int64" />
           <Property Name="Celular" Type="Int64" />
@@ -460,6 +467,41 @@
           <NavigationProperty Name="Grado" Relationship="Self.FK_ID_Grado_Profesor" FromRole="Profesor" ToRole="Grado" />
           <NavigationProperty Name="Calificaciones" Relationship="SistemaEscolarModel.FK_Calificaciones_Profesor" FromRole="Profesor" ToRole="Calificaciones" />
         </EntityType>
+        <EntityType Name="Registro">
+          <Key>
+            <PropertyRef Name="ID_Registro" />
+          </Key>
+          <Property Name="ID_Registro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_Estudiante" Type="Int32" />
+          <Property Name="Contraseña" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK_ID_Estudiante_Registro" FromRole="Registro" ToRole="Estudiante" />
+          <NavigationProperty Name="Subir_Tarea" Relationship="Self.FK_ID_Registro_Tarea" FromRole="Registro" ToRole="Subir_Tarea" />
+        </EntityType>
+        <EntityType Name="Subir_Tarea">
+          <Key>
+            <PropertyRef Name="ID_Tarea" />
+          </Key>
+          <Property Name="ID_Tarea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tarea" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ID_Materia" Type="Int32" />
+          <Property Name="ID_Registro" Type="Int32" />
+          <NavigationProperty Name="Materias" Relationship="Self.FK_ID_Materia_Tarea" FromRole="Subir_Tarea" ToRole="Materias" />
+          <NavigationProperty Name="Registro" Relationship="Self.FK_ID_Registro_Tarea" FromRole="Subir_Tarea" ToRole="Registro" />
+        </EntityType>
+        <Association Name="FK_ID_Materia_AsignarTarea">
+          <End Role="Materias" Type="Self.Materias" Multiplicity="1" />
+          <End Role="Asignar_Tarea" Type="Self.Asignar_Tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materias">
+              <PropertyRef Name="ID_Materia" />
+            </Principal>
+            <Dependent Role="Asignar_Tarea">
+              <PropertyRef Name="ID_Materia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ID_Estudiante_Direc">
           <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
           <End Role="Direccion" Type="Self.Direccion" Multiplicity="*" />
@@ -492,6 +534,18 @@
               <PropertyRef Name="ID_Estudiante" />
             </Principal>
             <Dependent Role="Padre_Tutor">
+              <PropertyRef Name="ID_Estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Estudiante_Registro">
+          <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="0..1" />
+          <End Role="Registro" Type="Self.Registro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiante">
+              <PropertyRef Name="ID_Estudiante" />
+            </Principal>
+            <Dependent Role="Registro">
               <PropertyRef Name="ID_Estudiante" />
             </Dependent>
           </ReferentialConstraint>
@@ -532,7 +586,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ID_Materia_Tarea">
+          <End Role="Materias" Type="Self.Materias" Multiplicity="0..1" />
+          <End Role="Subir_Tarea" Type="Self.Subir_Tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materias">
+              <PropertyRef Name="ID_Materia" />
+            </Principal>
+            <Dependent Role="Subir_Tarea">
+              <PropertyRef Name="ID_Materia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ID_Registro_Tarea">
+          <End Role="Registro" Type="Self.Registro" Multiplicity="0..1" />
+          <End Role="Subir_Tarea" Type="Self.Subir_Tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Registro">
+              <PropertyRef Name="ID_Registro" />
+            </Principal>
+            <Dependent Role="Subir_Tarea">
+              <PropertyRef Name="ID_Registro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SistemaEscolarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Asignar_Tarea" EntityType="Self.Asignar_Tarea" />
           <EntitySet Name="Direccion" EntityType="Self.Direccion" />
           <EntitySet Name="Documentos_Estudiantes" EntityType="Self.Documentos_Estudiantes" />
           <EntitySet Name="Estudiante" EntityType="Self.Estudiante" />
@@ -540,6 +619,12 @@
           <EntitySet Name="Materias" EntityType="Self.Materias" />
           <EntitySet Name="Padre_Tutor" EntityType="Self.Padre_Tutor" />
           <EntitySet Name="Profesor" EntityType="Self.Profesor" />
+          <EntitySet Name="Registro" EntityType="Self.Registro" />
+          <EntitySet Name="Subir_Tarea" EntityType="Self.Subir_Tarea" />
+          <AssociationSet Name="FK_ID_Materia_AsignarTarea" Association="Self.FK_ID_Materia_AsignarTarea">
+            <End Role="Materias" EntitySet="Materias" />
+            <End Role="Asignar_Tarea" EntitySet="Asignar_Tarea" />
+          </AssociationSet>
           <AssociationSet Name="FK_ID_Estudiante_Direc" Association="Self.FK_ID_Estudiante_Direc">
             <End Role="Estudiante" EntitySet="Estudiante" />
             <End Role="Direccion" EntitySet="Direccion" />
@@ -733,6 +818,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SistemaEscolarModelStoreContainer" CdmEntityContainer="SistemaEscolarEntities">
+          <EntitySetMapping Name="Asignar_Tarea">
+            <EntityTypeMapping TypeName="SistemaEscolarModel.Asignar_Tarea">
+              <MappingFragment StoreEntitySet="Asignar_Tarea">
+                <ScalarProperty Name="ID_AsignarTarea" ColumnName="ID_AsignarTarea" />
+                <ScalarProperty Name="ID_Materia" ColumnName="ID_Materia" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Direccion">
             <EntityTypeMapping TypeName="SistemaEscolarModel.Direccion">
               <MappingFragment StoreEntitySet="Direccion">
@@ -773,10 +868,9 @@
                 <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
                 <ScalarProperty Name="Sexo" ColumnName="Sexo" />
                 <ScalarProperty Name="ID_Grado" ColumnName="ID_Grado" />
-                <ScalarProperty Name="CentroEducativo" ColumnName="CentroEducativo" />
-                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
-                <ScalarProperty Name="GradoSolicita" ColumnName="GradoSolicita" />
                 <ScalarProperty Name="DistritoEducativo" ColumnName="DistritoEducativo" />
+                <ScalarProperty Name="CentroEducativo" ColumnName="CentroEducativo" />
+                <ScalarProperty Name="GradoSolicita" ColumnName="GradoSolicita" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -806,7 +900,6 @@
                 <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
                 <ScalarProperty Name="Parentesco" ColumnName="Parentesco" />
                 <ScalarProperty Name="Cedula" ColumnName="Cedula" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Profesion" ColumnName="Profesion" />
                 <ScalarProperty Name="Telefono" ColumnName="Telefono" />
                 <ScalarProperty Name="Celular" ColumnName="Celular" />
@@ -869,6 +962,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Subir_Tarea">
+            <EntityTypeMapping TypeName="SistemaEscolarModel.Subir_Tarea">
+              <MappingFragment StoreEntitySet="Subir_Tarea">
+                <ScalarProperty Name="ID_Tarea" ColumnName="ID_Tarea" />
+                <ScalarProperty Name="Tarea" ColumnName="Tarea" />
+                <ScalarProperty Name="ID_Materia" ColumnName="ID_Materia" />
+                <ScalarProperty Name="ID_Registro" ColumnName="ID_Registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -886,7 +989,7 @@
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
