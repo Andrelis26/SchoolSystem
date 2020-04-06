@@ -93,9 +93,9 @@ namespace SchoolSystem.Controllers
         }
 
         // GET: Asignar_Tarea/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.ID_Materia = new SelectList(db.Materias, "ID_Materia", "Descripcion");
+            ViewBag.ID_Materia = id;
             return View();
         }
 
@@ -104,16 +104,23 @@ namespace SchoolSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_AsignarTarea,ID_Materia,Titulo,Contenido")] Asignar_Tarea asignar_Tarea)
+        public ActionResult Create(Asignar_Tarea asignar_Tarea, int id)
         {
             if (ModelState.IsValid)
             {
-                db.Asignar_Tarea.Add(asignar_Tarea);
+                db.Asignar_Tarea.Add(new Asignar_Tarea
+                {
+                    ID_AsignarTarea = asignar_Tarea.ID_AsignarTarea,
+                    ID_Materia = id,
+                    Titulo =  asignar_Tarea.Titulo,
+                    Contenido = asignar_Tarea.Contenido
+                });
                 db.SaveChanges();
+                ViewBag.id = asignar_Tarea.ID_AsignarTarea;
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID_Materia = new SelectList(db.Materias, "ID_Materia", "Descripcion", asignar_Tarea.ID_Materia);
+            ViewBag.ID_Materia = id;
             return View(asignar_Tarea);
         }
 

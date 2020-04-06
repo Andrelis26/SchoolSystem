@@ -24,32 +24,27 @@ namespace SchoolSystem.Controllers
         public ActionResult Create()
         {
             ViewBag.ID_Materia = new SelectList(db.Materias, "ID_Materia", "Descripcion");
-            ViewBag.ID_Registro = new SelectList(db.Registro, "ID_Registro", "Usuario");
+            ViewBag.ID_Registro = new SelectList(db.Registro, "ID_Estudiante", "Usuario");
             return View();
         }
 
-        // GET: Subir_Tarea/Create
-        //public ActionResult CreateTarea()
-        //{
-        //    return View();
-        //}
 
         // POST: Subir_Tarea/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult TareaEspañol([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
+        public ActionResult TareaEspañol([Bind(Include = "ID_Tarea,ID_Materia,ID_Estudiante")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea, int ID)
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
-                                               Path.GetFileName(tarea.FileName));
+            Path.GetFileName(tarea.FileName));
 
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
-
+                subir_Tarea.Id_TareaAsignada = ID; 
                 subir_Tarea.ID_Materia = 1;
+                subir_Tarea.ID_Estudiante = Convert.ToInt32(Session["ID_Estudiante"]);
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
                 tarea.SaveAs(path);
@@ -61,7 +56,7 @@ namespace SchoolSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult TareaMatematica([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
+        public ActionResult TareaMatematica([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea, int ID)
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                                    Path.GetFileName(tarea.FileName));
@@ -70,7 +65,8 @@ namespace SchoolSystem.Controllers
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
-
+                subir_Tarea.Id_TareaAsignada = ID;
+                subir_Tarea.ID_Estudiante = Convert.ToInt32(Session["ID_Estudiante"]);
                 subir_Tarea.ID_Materia = 2;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -83,7 +79,7 @@ namespace SchoolSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult TareaNaturales([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
+        public ActionResult TareaNaturales([Bind(Include = "ID_Tarea,ID_Materia,ID_Estudiante")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea, int ID)
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                                    Path.GetFileName(tarea.FileName));
@@ -92,7 +88,8 @@ namespace SchoolSystem.Controllers
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
-
+                subir_Tarea.Id_TareaAsignada = ID;
+                subir_Tarea.ID_Estudiante = Convert.ToInt32(Session["ID_Estudiante"]);
                 subir_Tarea.ID_Materia = 3;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -105,7 +102,7 @@ namespace SchoolSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult TareaSociales([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
+        public ActionResult TareaSociales([Bind(Include = "ID_Tarea,ID_Materia,ID_Estudiante")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea, int ID)
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                                    Path.GetFileName(tarea.FileName));
@@ -114,7 +111,8 @@ namespace SchoolSystem.Controllers
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
-
+                subir_Tarea.Id_TareaAsignada = ID;
+                subir_Tarea.ID_Estudiante = Convert.ToInt32(Session["ID_Estudiante"]);
                 subir_Tarea.ID_Materia = 4;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -127,7 +125,7 @@ namespace SchoolSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult TareaReligion([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
+        public ActionResult TareaReligion([Bind(Include = "ID_Tarea,ID_Materia,ID_Estudiante")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea, int ID)
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                        Path.GetFileName(tarea.FileName));
@@ -137,6 +135,8 @@ namespace SchoolSystem.Controllers
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
+                subir_Tarea.Id_TareaAsignada = ID;
+                subir_Tarea.ID_Estudiante = Convert.ToInt32(Session["ID_Estudiante"]);
                 subir_Tarea.ID_Materia = 5;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -149,7 +149,7 @@ namespace SchoolSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult TareaDeporte([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
+        public ActionResult TareaDeporte([Bind(Include = "ID_Tarea,ID_Materia,ID_Estudiante")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea, int ID)
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                                    Path.GetFileName(tarea.FileName));
@@ -158,7 +158,8 @@ namespace SchoolSystem.Controllers
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
-
+                subir_Tarea.Id_TareaAsignada = ID;
+                subir_Tarea.ID_Estudiante = Convert.ToInt32(Session["ID_Estudiante"]);
                 subir_Tarea.ID_Materia = 6;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -171,7 +172,7 @@ namespace SchoolSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult TareaArte([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
+        public ActionResult TareaArte([Bind(Include = "ID_Tarea,ID_Materia,ID_Estudiante")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea, int ID)
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
                                    Path.GetFileName(tarea.FileName));
@@ -180,7 +181,8 @@ namespace SchoolSystem.Controllers
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
-
+                subir_Tarea.Id_TareaAsignada = ID;
+                subir_Tarea.ID_Estudiante = Convert.ToInt32(Session["ID_Estudiante"]);
                 subir_Tarea.ID_Materia = 7;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -191,18 +193,29 @@ namespace SchoolSystem.Controllers
             return View(subir_Tarea);
         }
 
+        public FileContentResult Descarga(int id)
+        {
+            byte[] Tarea;
+            var Documento = db.Subir_Tarea.Find(id);
+            Tarea = (byte[])Documento.Tarea.ToArray();
+            return File(Tarea, "Text", "Tarea.pdf");
+
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult TareaOptativa([Bind(Include = "ID_Tarea,ID_Materia,ID_Registro")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea)
+        public ActionResult TareaOptativa([Bind(Include = "ID_Tarea,ID_Materia,ID_Estudiante")] Subir_Tarea subir_Tarea, HttpPostedFileBase tarea, int ID)
         {
             string path = Path.Combine(Server.MapPath("~/Archivos"),
-                                   Path.GetFileName(tarea.FileName));
+                          Path.GetFileName(tarea.FileName));
 
             if (ModelState.IsValid)
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
 
+                subir_Tarea.Id_TareaAsignada = ID;
+                subir_Tarea.ID_Estudiante = Convert.ToInt32(Session["ID_Estudiante"]);
                 subir_Tarea.ID_Materia = 8;
                 db.Subir_Tarea.Add(subir_Tarea);
                 db.SaveChanges();
@@ -213,12 +226,7 @@ namespace SchoolSystem.Controllers
             return View(subir_Tarea);
         }
 
-        //Metodo 1 para presentar documentos
-        public FileResult Download(string ImageName)
-        {
-            var FileVirtualPath = "~/Archivos" + ImageName;
-            return File(FileVirtualPath, "application/force- download", Path.GetFileName(FileVirtualPath));
-        }
+
 
         private List<string> GetFiles()
         {
@@ -234,19 +242,6 @@ namespace SchoolSystem.Controllers
             return items;
         }
 
-        //Metodo 2
-        //public FileContentResult FileContentResult(int id)
-        //{
-            //byte[] Data;
-            //string name;
-
-            //Entidad entidad = db.Subir_Tarea(id);
-            //Data = (byte[])entidad.Tarea.ToArray();
-            //name = entidad.FileName;
-
-            //return File(Data, "Text", name);
-
-        //}
 
 
         protected override void Dispose(bool disposing)

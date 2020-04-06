@@ -3,25 +3,39 @@
     ViewBag.Title = "Materias";
     Layout = "~/Views/Shared/_InternalHome.cshtml";
 }
+
 <style>
     .panel-heading {
         color: #fff !important;
         background-color: #22233e !important;
     }
 </style>
+
 <div class="panel panel-default">
     <div class="panel-heading text-center">Materias</div>
     <div class="panel-body">
         <div class="row" style="margin-bottom: 50px">
+
             <div class="col-xs-12 col-md-3">
                 <div class="thumbnail" style="height: 200px; background-color: #61C187;">
-
                     <div style="margin-top: 40px;">
                         <div style="margin-top: 20px; margin-bottom: 6px">
-                            @Html.ActionLink("Lengua Española", "Materias", "Home", new { }, new { @class = "btn btn-default btn-block" })
+                            @Html.ActionLink("Lengua Española", "Español", "Asignar_Tarea", new { id = 1 }, new { @class = "btn btn-default btn-block" })
                         </div>
                         <div class="img-responsive">
+                            <img src="~/Image/jerry-wang-jfnUC7s3iuw-unsplash.jpg" class="img-circle center-block" height="100" width="100" />
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-xs-12 col-md-3">
+                <div class="thumbnail" style="height: 200px; background-color: #61C187;">
+                    <div style="margin-top: 40px;">
+                        <div style="margin-top: 20px; margin-bottom: 6px">
+                            @Html.ActionLink("Matemáticas", "Matematica", "Asignar_Tarea", new { }, new { @class = "btn btn-default btn-block" })
+                        </div>
+                        <div class="img-responsive">
                             <img src="~/Image/jerry-wang-jfnUC7s3iuw-unsplash.jpg" class="img-circle center-block" height="100" width="100" />
                         </div>
                     </div>
@@ -33,25 +47,9 @@
 
                     <div style="margin-top: 40px;">
                         <div style="margin-top: 20px; margin-bottom: 6px">
-                            @Html.ActionLink("Matemáticas", "Materias", "Home", new { }, new { @class = "btn btn-default btn-block" })
+                            @Html.ActionLink("Ciencias Naturales", "Naturales", "Asignar_Tarea", new { }, new { @class = "btn btn-default btn-block" })
                         </div>
                         <div class="img-responsive">
-
-                            <img src="~/Image/jerry-wang-jfnUC7s3iuw-unsplash.jpg" class="img-circle center-block" height="100" width="100" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-md-3">
-                <div class="thumbnail" style="height: 200px; background-color: #61C187;">
-
-                    <div style="margin-top: 40px;">
-                        <div style="margin-top: 20px; margin-bottom: 6px">
-                            @Html.ActionLink("Ciencias Naturales", "Materias", "Home", new { }, new { @class = "btn btn-default btn-block" })
-                        </div>
-                        <div class="img-responsive">
-
                             <img src="~/Image/jerry-wang-jfnUC7s3iuw-unsplash.jpg" class="img-circle center-block" height="100" width="100" />
                         </div>
                     </div>
@@ -64,7 +62,7 @@
 
                     <div style="margin-top: 40px;">
                         <div style="margin-top: 20px; margin-bottom: 6px">
-                            @Html.ActionLink("Ciencias Sociales", "Materias", "Home", new { }, new { @class = "btn btn-default btn-block" })
+                            @Html.ActionLink("Ciencias Sociales", "Sociales", "Asignar_Tarea", new { }, new { @class = "btn btn-default btn-block" })
                         </div>
                         <div class="img-responsive">
 
@@ -81,7 +79,7 @@
 
                     <div style="margin-top: 40px;">
                         <div style="margin-top: 20px; margin-bottom: 6px">
-                            @Html.ActionLink("Formación Humana Religiosa", "Materias", "Home", new { }, new { @class = "btn btn-default btn-block" })
+                            @Html.ActionLink("Formación Humana Religiosa", "Religion", "Asignar_Tarea", new { }, new { @class = "btn btn-default btn-block" })
                         </div>
                         <div class="img-responsive">
 
@@ -96,7 +94,7 @@
 
                     <div style="margin-top: 40px;">
                         <div style="margin-top: 20px; margin-bottom: 6px">
-                            @Html.ActionLink("Educación Física", "Materias", "Home", new { }, new { @class = "btn btn-default btn-block" })
+                            @Html.ActionLink("Educación Física", "Deporte", "Asignar_Tarea", new { }, new { @class = "btn btn-default btn-block" })
                         </div>
                         <div class="img-responsive">
 
@@ -111,7 +109,7 @@
 
                     <div style="margin-top: 40px;">
                         <div style="margin-top: 20px; margin-bottom: 6px">
-                            @Html.ActionLink("Educación Artística", "Materias", "Home", new { }, new { @class = "btn btn-default btn-block" })
+                            @Html.ActionLink("Educación Artística", "Arte", "Asignar_Tarea", new { }, new { @class = "btn btn-default btn-block" })
                         </div>
                         <div class="img-responsive">
 
@@ -127,7 +125,7 @@
 
                     <div style="margin-top: 40px;">
                         <div style="margin-top: 20px; margin-bottom: 6px">
-                            @Html.ActionLink("Curso Optativo", "Materias", "Home", new { }, new { @class = "btn btn-default btn-block" })
+                            @Html.ActionLink("Curso Optativo", "Optativa", "Asignar_Tarea", new { }, new { @class = "btn btn-default btn-block" })
                         </div>
                         <div class="img-responsive">
 

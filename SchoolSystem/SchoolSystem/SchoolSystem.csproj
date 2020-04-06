@@ -271,6 +271,9 @@
     <Content Include="Views\Registroes\Details.cshtml" />
     <Content Include="Views\Registroes\Edit.cshtml" />
     <Content Include="Views\Registroes\Index.cshtml" />
+    <Content Include="Views\Shared\Lista_Materias.cshtml" />
+    <Content Include="Views\Shared\MenuProfesores.cshtml" />
+    <Content Include="Views\Subir_Tarea\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

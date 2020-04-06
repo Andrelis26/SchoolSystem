@@ -14,11 +14,19 @@ namespace Model
     
     public partial class Asignar_Tarea
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Asignar_Tarea()
+        {
+            this.Subir_Tarea = new HashSet<Subir_Tarea>();
+        }
+    
         public int ID_AsignarTarea { get; set; }
         public int ID_Materia { get; set; }
         public string Titulo { get; set; }
         public string Contenido { get; set; }
     
         public virtual Materias Materias { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subir_Tarea> Subir_Tarea { get; set; }
     }
 }

@@ -17,8 +17,8 @@ namespace Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Materias()
         {
-            this.Asignar_Tarea = new HashSet<Asignar_Tarea>();
             this.Calificaciones = new HashSet<Calificaciones>();
+            this.Asignar_Tarea = new HashSet<Asignar_Tarea>();
             this.Subir_Tarea = new HashSet<Subir_Tarea>();
         }
     
@@ -27,10 +27,10 @@ namespace Model
         public int ID_Grado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Asignar_Tarea> Asignar_Tarea { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Calificaciones> Calificaciones { get; set; }
         public virtual Grado Grado { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Asignar_Tarea> Asignar_Tarea { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subir_Tarea> Subir_Tarea { get; set; }
     }

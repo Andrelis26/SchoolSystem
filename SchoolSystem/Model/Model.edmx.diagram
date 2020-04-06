@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="12750850ac8f4fd6882168e7f6c24e19" Name="Diagram1" ZoomLevel="58">
-        <EntityTypeShape EntityType="SistemaEscolarModel.Asignar_Tarea" Width="1.5" PointX="5.25" PointY="21.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Calificaciones" Width="1.5" PointX="8.25" PointY="15.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Direccion" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Documentos_Estudiantes" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
@@ -14,8 +13,6 @@
         <EntityTypeShape EntityType="SistemaEscolarModel.Materias" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Padre_Tutor" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Profesor" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SistemaEscolarModel.Subir_Tarea" Width="1.5" PointX="7.5" PointY="19.625" IsExpanded="true" />
-        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Materia_AsignarTarea" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_Calificaciones_Materias" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_Calificaciones_Profesor" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante" ManuallyRouted="false" />
@@ -25,9 +22,13 @@
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Grado_Estudiante" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Grado_Materia" ManuallyRouted="false" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Grado_Profesor" ManuallyRouted="false" />
-        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Materia_Tarea" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SistemaEscolarModel.Registro" Width="1.5" PointX="5.25" PointY="3" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Estudiante_Registro" />
+        <EntityTypeShape EntityType="SistemaEscolarModel.Asignar_Tarea" Width="1.5" PointX="5.25" PointY="21.625" />
+        <EntityTypeShape EntityType="SistemaEscolarModel.Subir_Tarea" Width="1.5" PointX="7.5" PointY="12.125" />
+        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Materia_AsignarTarea" />
+        <AssociationConnector Association="SistemaEscolarModel.FK_Subir_Tarea_Asignar_Tarea" />
+        <AssociationConnector Association="SistemaEscolarModel.FK_ID_Materia_Tarea" />
         <AssociationConnector Association="SistemaEscolarModel.FK_ID_Registro_Tarea" />
       </Diagram>
     </edmx:Diagrams>

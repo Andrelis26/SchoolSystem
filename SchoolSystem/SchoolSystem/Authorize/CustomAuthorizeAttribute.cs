@@ -10,7 +10,6 @@ namespace SchoolSystem.Authorize
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
     public class CustomAuthorizeAttribute : AuthorizeAttribute
     {
-
         public string Perfil { get; set; }
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)

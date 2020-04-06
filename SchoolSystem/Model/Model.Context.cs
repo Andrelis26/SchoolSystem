@@ -25,7 +25,6 @@ namespace Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Asignar_Tarea> Asignar_Tarea { get; set; }
         public virtual DbSet<Calificaciones> Calificaciones { get; set; }
         public virtual DbSet<Direccion> Direccion { get; set; }
         public virtual DbSet<Documentos_Estudiantes> Documentos_Estudiantes { get; set; }
@@ -34,7 +33,8 @@ namespace Model
         public virtual DbSet<Materias> Materias { get; set; }
         public virtual DbSet<Padre_Tutor> Padre_Tutor { get; set; }
         public virtual DbSet<Profesor> Profesor { get; set; }
-        public virtual DbSet<Subir_Tarea> Subir_Tarea { get; set; }
         public virtual DbSet<Registro> Registro { get; set; }
+        public virtual DbSet<Asignar_Tarea> Asignar_Tarea { get; set; }
+        public virtual DbSet<Subir_Tarea> Subir_Tarea { get; set; }
     }
 }
