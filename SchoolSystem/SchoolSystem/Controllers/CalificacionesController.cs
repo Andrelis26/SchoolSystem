@@ -18,6 +18,8 @@ namespace SchoolSystem.Controllers
         public ActionResult Index()
         {
             var calificaciones = db.Calificaciones.Include(c => c.Materias).Include(c => c.Profesor).Include(c => c.Estudiante);
+            var Student = db.Calificaciones.ToList().Where(x => x.Id_Estudiante == Convert.ToInt32(Session["ID_Estudiante"]));
+            ViewBag.Student = Student;
             return View(calificaciones.ToList());
         }
 

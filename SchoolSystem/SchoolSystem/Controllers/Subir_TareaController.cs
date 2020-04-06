@@ -19,9 +19,6 @@ namespace SchoolSystem.Controllers
         {
             var items = GetFiles();
             var subir_Tarea = db.Subir_Tarea.Include(s => s.Materias).Include(s => s.Registro).Include(s => s.Asignar_Tarea);
-
-            var Tareas = db.Subir_Tarea.ToList().Where(x => x.ID_Materia == 1);
-            ViewBag.Lengua = Tareas;
             return View(subir_Tarea.ToList());
         }
 

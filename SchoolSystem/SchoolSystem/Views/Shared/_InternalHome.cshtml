@@ -37,7 +37,7 @@
         <div class="col-md-3">
             <div class="list-group" style="position:fixed; width:22%">
                 <a href="#" class="list-group-item color-menu">
-                    <span class="glyphicon glyphicon-menu-hamburger"></span>   Menú
+                    <span class="glyphicon glyphicon-menu-hamburger"></span> Menú
                 </a>
 
                 <a href="~/Home/InternalHome" class="list-group-item height">  <span class="glyphicon glyphicon-home"></span> Inicio</a>
@@ -45,7 +45,7 @@
                 {
                     <a href="~/Home/Materias" class="list-group-item height"> <span class="glyphicon glyphicon-book"></span> Materias</a>
                     <a href="#" class="list-group-item height"><span class="glyphicon glyphicon-list-alt"></span> Asignaciones</a>
-                    <a href="#" class="list-group-item height"><span class="glyphicon glyphicon-ok"></span> Calificaciones</a>
+                    <a href="~/Calificaciones/Index" class="list-group-item height"><span class="glyphicon glyphicon-ok"></span> Calificaciones</a>
                 }
                 @if (Session["Rol"].ToString() == "Profesor")
                 {
