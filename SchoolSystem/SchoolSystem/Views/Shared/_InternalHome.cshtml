@@ -47,9 +47,10 @@
                     <a href="#" class="list-group-item height"><span class="glyphicon glyphicon-list-alt"></span> Asignaciones</a>
                     <a href="#" class="list-group-item height"><span class="glyphicon glyphicon-ok"></span> Calificaciones</a>
                 }
-
-             
-
+                @if (Session["Rol"].ToString() == "Profesor")
+                {
+                    <a href="~/Subir_Tarea/Index" class="list-group-item height"><span class="glyphicon glyphicon-list-alt"></span> Tareas Subidas</a>
+                }
                 @if (Session["Rol"].ToString() == "Administrador")
                 {
                     <a class="list-group-item height"><span class="glyphicon glyphicon-user"></span> Administración</a>

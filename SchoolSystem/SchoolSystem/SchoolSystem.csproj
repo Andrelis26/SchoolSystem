@@ -274,6 +274,7 @@
     <Content Include="Views\Shared\Lista_Materias.cshtml" />
     <Content Include="Views\Shared\MenuProfesores.cshtml" />
     <Content Include="Views\Subir_Tarea\Index.cshtml" />
+    <Content Include="Views\Subir_Tarea\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

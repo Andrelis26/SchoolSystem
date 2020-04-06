@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
 using Model;
 
 namespace SchoolSystem.Controllers
@@ -17,8 +18,54 @@ namespace SchoolSystem.Controllers
         public ActionResult Index()
         {
             var items = GetFiles();
-            var subir_Tarea = db.Subir_Tarea.Include(s => s.Materias).Include(s => s.Registro);
+            var subir_Tarea = db.Subir_Tarea.Include(s => s.Materias).Include(s => s.Registro).Include(s => s.Asignar_Tarea);
+
+            var Tareas = db.Subir_Tarea.ToList().Where(x => x.ID_Materia == 1);
+            ViewBag.Lengua = Tareas;
             return View(subir_Tarea.ToList());
+        }
+
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Subir_Tarea subir_Tarea = db.Subir_Tarea.Find(id);
+            if (subir_Tarea == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(subir_Tarea);
+        }
+        [HttpPost]
+        public ActionResult Index(int Nota, int Estudiante, int Materia)
+        {
+            var AddMateria = db.Calificaciones.FirstOrDefault(x => x.Id_Materia == Materia);
+
+            if (AddMateria == null)
+            {
+                db.Calificaciones.Add(new Calificaciones
+                {
+                    Nota = Nota + Nota,
+                    Id_Materia = Materia,
+                    Id_Estudiante = Estudiante,
+                    Id_Profesor = 1
+                });
+                db.SaveChanges();
+            }
+            else if (AddMateria != null)
+
+                AddMateria.Nota += Nota;
+            {
+                db.Entry(AddMateria).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index", "Subir_Tarea");
+
+
         }
 
         public ActionResult Create()
@@ -42,7 +89,7 @@ namespace SchoolSystem.Controllers
             {
                 subir_Tarea.Tarea = new byte[tarea.ContentLength];
                 tarea.InputStream.Read(subir_Tarea.Tarea, 0, tarea.ContentLength);
-                subir_Tarea.Id_TareaAsignada = ID; 
+                subir_Tarea.Id_TareaAsignada = ID;
                 subir_Tarea.ID_Materia = 1;
                 subir_Tarea.ID_Estudiante = Convert.ToInt32(Session["ID_Estudiante"]);
                 db.Subir_Tarea.Add(subir_Tarea);
