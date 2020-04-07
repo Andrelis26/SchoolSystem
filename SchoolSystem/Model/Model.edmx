@@ -63,10 +63,9 @@
           <Property Name="Nacionalidad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Sexo" Type="varchar" MaxLength="9" Nullable="false" />
           <Property Name="ID_Grado" Type="int" Nullable="false" />
-          <Property Name="CentroEducativo" Type="varchar" MaxLength="100" />
-          <Property Name="Nivel" Type="varchar" MaxLength="50" />
-          <Property Name="GradoSolicita" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DistritoEducativo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CentroEducativo" Type="varchar" MaxLength="100" />
+          <Property Name="GradoSolicita" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Grado">
           <Key>
@@ -93,7 +92,6 @@
           <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Parentesco" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Cedula" Type="bigint" Nullable="false" />
-          <Property Name="Direccion" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Profesion" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Telefono" Type="bigint" />
           <Property Name="Celular" Type="bigint" />
@@ -107,29 +105,29 @@
           <Property Name="Nombres" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Cedula" Type="bigint" Nullable="false" />
-          <Property Name="Titulo" Type="varbinary(max)" />
-          <Property Name="Curriculum" Type="varbinary(max)" />
-          <Property Name="CartaAceptacion" Type="varbinary(max)" />
+          <Property Name="Titulo" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Curriculum" Type="varbinary(max)" Nullable="false" />
+          <Property Name="CartaAceptacion" Type="varbinary(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Registro">
           <Key>
             <PropertyRef Name="ID_Registro" />
           </Key>
           <Property Name="ID_Registro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Rol" Type="varchar" MaxLength="60" Nullable="false" />
           <Property Name="Usuario" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Contraseña" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ID_Estudiante" Type="int" />
+          <Property Name="Contraseña" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Rol" Type="varchar" MaxLength="60" />
         </EntityType>
         <EntityType Name="Subir_Tarea">
           <Key>
             <PropertyRef Name="ID_Tarea" />
           </Key>
           <Property Name="ID_Tarea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_Estudiante" Type="int" />
           <Property Name="Tarea" Type="varbinary(max)" />
           <Property Name="ID_Materia" Type="int" />
           <Property Name="Id_TareaAsignada" Type="int" />
+          <Property Name="ID_Estudiante" Type="int" />
         </EntityType>
         <Association Name="FK_Calificaciones_Materias">
           <End Role="Materias" Type="Self.Materias" Multiplicity="1" />
@@ -427,8 +425,7 @@
           <Property Name="Sexo" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ID_Grado" Type="Int32" Nullable="false" />
           <Property Name="CentroEducativo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Nivel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="GradoSolicita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GradoSolicita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DistritoEducativo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Calificaciones" Relationship="Self.FK_ID_Estudiante" FromRole="Estudiante" ToRole="Calificaciones" />
           <NavigationProperty Name="Direccion" Relationship="Self.FK_ID_Estudiante_Direc" FromRole="Estudiante" ToRole="Direccion" />
@@ -469,7 +466,6 @@
           <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Parentesco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Cedula" Type="Int64" Nullable="false" />
-          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Profesion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Telefono" Type="Int64" />
           <Property Name="Celular" Type="Int64" />
@@ -484,9 +480,9 @@
           <Property Name="Nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Cedula" Type="Int64" Nullable="false" />
-          <Property Name="Titulo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Curriculum" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="CartaAceptacion" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Titulo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Curriculum" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="CartaAceptacion" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <NavigationProperty Name="Calificaciones" Relationship="Self.FK_Calificaciones_Profesor" FromRole="Profesor" ToRole="Calificaciones" />
           <NavigationProperty Name="Grado" Relationship="Self.FK_ID_Grado_Profesor" FromRole="Profesor" ToRole="Grado" />
         </EntityType>
@@ -672,12 +668,12 @@
             <PropertyRef Name="ID_Registro" />
           </Key>
           <Property Name="ID_Registro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Rol" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="Usuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Contraseña" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contraseña" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ID_Estudiante" Type="Int32" />
           <NavigationProperty Name="Estudiante" Relationship="SistemaEscolarModel.FK_ID_Estudiante_Registro" FromRole="Registro" ToRole="Estudiante" />
           <NavigationProperty Name="Subir_Tarea" Relationship="SistemaEscolarModel.FK_ID_Registro_Tarea" FromRole="Registro" ToRole="Subir_Tarea" />
+          <Property Name="Rol" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_ID_Estudiante_Registro">
           <End Type="SistemaEscolarModel.Estudiante" Role="Estudiante" Multiplicity="0..1" />
@@ -821,7 +817,6 @@
                 <ScalarProperty Name="Sexo" ColumnName="Sexo" />
                 <ScalarProperty Name="ID_Grado" ColumnName="ID_Grado" />
                 <ScalarProperty Name="CentroEducativo" ColumnName="CentroEducativo" />
-                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
                 <ScalarProperty Name="GradoSolicita" ColumnName="GradoSolicita" />
                 <ScalarProperty Name="DistritoEducativo" ColumnName="DistritoEducativo" />
               </MappingFragment>
@@ -853,7 +848,6 @@
                 <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
                 <ScalarProperty Name="Parentesco" ColumnName="Parentesco" />
                 <ScalarProperty Name="Cedula" ColumnName="Cedula" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Profesion" ColumnName="Profesion" />
                 <ScalarProperty Name="Telefono" ColumnName="Telefono" />
                 <ScalarProperty Name="Celular" ColumnName="Celular" />
@@ -877,10 +871,10 @@
           <EntitySetMapping Name="Registro">
             <EntityTypeMapping TypeName="SistemaEscolarModel.Registro">
               <MappingFragment StoreEntitySet="Registro">
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
                 <ScalarProperty Name="ID_Estudiante" ColumnName="ID_Estudiante" />
                 <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-                <ScalarProperty Name="Rol" ColumnName="Rol" />
                 <ScalarProperty Name="ID_Registro" ColumnName="ID_Registro" />
               </MappingFragment>
             </EntityTypeMapping>
